@@ -10,40 +10,34 @@ let contenedor = (clavesObjeto) => {
     let trEl = document.createElement("tr");
    
     for (let i = 0; i < clavesObjeto.length; i++) {
-  
-      let thEl = document.createElement("th");
-     
-      thEl.innerHTML = clavesObjeto[i];
+         let thEl = document.createElement("th");
+         thEl.innerHTML = clavesObjeto[i];
       
-      trEl.appendChild(thEl);
+         trEl.appendChild(thEl);
     }
     
-    theadEl.appendChild(trEl);
+         theadEl.appendChild(trEl);
     
-    tableEl.appendChild(theadEl);
+         tableEl.appendChild(theadEl);
   };
   
   let crearFila = (elemento) => {
-    
-    let trEl = document.createElement("tr");
+     let trEl = document.createElement("tr");
     
     for (clave in elemento) {
-     
-      let tdEl = document.createElement("td");
-     
-      tdEl.innerHTML = elemento[clave];
+     let tdEl = document.createElement("td");
+     tdEl.innerHTML = elemento[clave];
      
       trEl.appendChild(tdEl);
     }
    
     return trEl;
   };
+
   
   let crearCuerpo = (elementos) => {
-   
     let tbodyEl = document.createElement("tbody");
     for (let i = 0; i < elementos.length; i++) {
-     
       tbodyEl.appendChild(crearFila(elementos[i]));
     }
    
@@ -55,10 +49,6 @@ let contenedor = (clavesObjeto) => {
     crearCuerpo(dataParseada.personajes);
   });
   
-
-
-
-
 
 
 
