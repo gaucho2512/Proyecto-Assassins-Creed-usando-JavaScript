@@ -1,8 +1,89 @@
-/* creacion de los datos de los personajes  */
-personajes.forEach( personaje => {
+/*  Iterar el arreglo con un ciclo FOR
+    (primera forma de mostrar la tabla) */
+                                         
 
+
+
+let contenedor = (clavesObjeto) => {
+   
+    let theadEl = document.createElement("thead");
+    let trEl = document.createElement("tr");
+   
+    for (let i = 0; i < clavesObjeto.length; i++) {
   
-    const tr = document.createElement("tr");
+      let thEl = document.createElement("th");
+     
+      thEl.innerHTML = clavesObjeto[i];
+      
+      trEl.appendChild(thEl);
+    }
+    
+    theadEl.appendChild(trEl);
+    
+    tableEl.appendChild(theadEl);
+  };
+  
+  let crearFila = (elemento) => {
+    
+    let trEl = document.createElement("tr");
+    
+    for (clave in elemento) {
+     
+      let tdEl = document.createElement("td");
+     
+      tdEl.innerHTML = elemento[clave];
+     
+      trEl.appendChild(tdEl);
+    }
+   
+    return trEl;
+  };
+  
+  let crearCuerpo = (elementos) => {
+   
+    let tbodyEl = document.createElement("tbody");
+    for (let i = 0; i < elementos.length; i++) {
+     
+      tbodyEl.appendChild(crearFila(elementos[i]));
+    }
+   
+    tableEl.appendChild(tbodyEl);
+  };
+  
+  window.addEventListener("load", () => {
+    contenedor(KeysProducto);
+    crearCuerpo(dataParseada.personajes);
+  });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  creacion de los datos de los personajes
+
+    Iterar con un ciclo FOREACH (segunda forma de mostrar la tabla)  */
+
+                                                                           
+
+
+/* personajes.forEach( personaje => {
+
+   
+    const tHead = document.createElement("thead");
+
+
 
     let tdNombre = document.createElement("td");
     tdNombre.innerHTML = personaje.Nombre;
@@ -39,11 +120,18 @@ personajes.forEach( personaje => {
 
 
 
-    tbodyID.appendChild(tr);
+    tHead.appendChild(tr);
 
 
 })
 
+ */
 
 
 
+
+
+
+
+
+ 
