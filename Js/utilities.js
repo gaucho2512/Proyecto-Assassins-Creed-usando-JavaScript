@@ -1,7 +1,6 @@
 
 /* Proceso de la tabla dinamica ---- primera manera, a traves de un FOReach */
 
-
 const cargarTabla = () => {
 
 personajes.forEach( personaje => {
@@ -46,16 +45,105 @@ personajes.forEach( personaje => {
   tdOpcion.classList.add("td-Elementos");
   tdOpcion.classList.add("btn-accion");
 
-
-
   tablaDinamica.appendChild(tr);
-
-
 })
-
-
-
 }
+
+
+/*  funcion del evento BOTON DE AGREGAR + tiempo con un progress bar */
+   
+let progressBar = () => {
+
+  const barra = document.getElementById("barra");
+barra.classList.toggle("final");
+
+
+  tiempo = setTimeout(mostrarFila, 2000);
+}
+
+
+  
+    let mostrarFila = () =>{
+
+ 
+
+    let nuevaFila = document.createElement("tr");
+    nuevaFila.classList.add("td-Elementos")
+    nuevaFila.innerHTML = tableEl
+   
+
+    let nuevaCelda = document.createElement("th");
+    nuevaFila.classList.add("tr-Elementos")
+    nuevaCelda.innerHTML = nuevaFila
+
+    let nuevaCelda2 = document.createElement("th");
+    nuevaCelda2.innerHTML = nuevaFila
+
+    let nuevaCelda3 = document.createElement("th");
+    nuevaCelda3.innerHTML = nuevaFila
+
+    let nuevaCelda4 = document.createElement("button")
+    nuevaCelda4.innerHTML = nuevaFila
+    let nuevaCelda5 = document.createElement("button")
+    nuevaCelda5.innerHTML = nuevaFila
+
+
+
+    tablaDinamica.appendChild(nuevaFila)
+    nuevaFila.appendChild(nuevaCelda)
+    nuevaFila.appendChild(nuevaCelda2)
+    nuevaFila.appendChild(nuevaCelda3)
+    nuevaFila.appendChild(nuevaCelda4)
+    nuevaFila.appendChild(nuevaCelda5)
+   }
+
+
+ 
+
+
+
+
+
+   let modal = () => {
+
+    
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
