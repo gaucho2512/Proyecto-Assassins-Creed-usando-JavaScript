@@ -390,12 +390,9 @@ table {
     border: 1px solid black;
     height: 300px;
     
+    
 }
- table th {
-    font-size: 18px;
-    background-color: lightblue;
-    border: 1px solid black;
-}
+ 
 
 .td-Elementos{
    border: 1px solid black;
@@ -411,7 +408,7 @@ table {
 
 }
 
-.buttonID{
+.agregar{
     color: green;
     margin-top: 15px;
     width: 130px;
@@ -419,6 +416,22 @@ table {
     margin-left: 650px;
     font-size: 14px;
 }
+
+.tr-Elementos{
+    border: 1px solid black;
+ }
+
+
+ .btn-Eliminar{
+
+
+ }
+
+
+ .btn-Editar{
+
+    
+ }
 
 
 
