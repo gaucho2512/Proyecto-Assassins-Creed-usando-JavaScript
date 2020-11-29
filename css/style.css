@@ -423,14 +423,16 @@ table {
 
 
  .btn-Eliminar{
-
+                  display: flex;
+                  flex-direction: column;
 
  }
 
 
  .btn-Editar{
+    display: flex;
+    flex-direction: column;
 
-    
  }
 
 

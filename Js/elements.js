@@ -1,25 +1,50 @@
 
-/* Constante de la tabla */
+/* Constante de la tabla dinamica */
 const tableEl = document.getElementById("tablaDinamica");
-
 
 /* Evento de la tabla dinamica*/
 window.addEventListener("DOMContentLoaded", () => {
-    TablaDinamica(KeysProducto);
-    crearCuerpo(dataParseada.personajes);
+   cargarTabla()
   });
+
+
+  //Boton agregar personaje 
+
+const agregar = document.getElementById("agregar");
+
+agregar.addEventListener("click" , () => {
+
+
+alert("hola")
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
+/* Boton agregar personaje 
 
-
-/* Boton agregar personaje */
 const agregar = document.getElementById("agregar");
 agregar.classList.add("agregar");
 agregar.addEventListener("click" , () => {
 
-    let timer = setTimeout(bang , 5000)
-
-   
-    
+  
     let nuevaFila = document.createElement("tr");
     nuevaFila.classList.add("td-Elementos")
     nuevaFila.innerHTML = tableEl
@@ -40,13 +65,15 @@ agregar.addEventListener("click" , () => {
     nuevaFila.appendChild(nuevaCelda)
     nuevaFila.appendChild(nuevaCelda2)
     nuevaFila.appendChild(nuevaCelda3)
+
+    
    
     })
 
- 
+ */
 
 
-btn = document.getElementById("btn")
+
 
 
 
