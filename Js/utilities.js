@@ -8,42 +8,44 @@ personajes.forEach( personaje => {
   const tHead = document.createElement("thead");
   
 
-  const tr = document.createElement("tr");
+  const tr = document.createElement("tr");                       /* no me muestra los titulos ( nombre , origen , caracteristica , etc) */
   tr.innerHTML = ""
   tHead.appendChild(tr)
  
 
   let tdNombre = document.createElement("td");
   tdNombre.innerHTML = personaje.Nombre;
-  tr.appendChild(tdNombre);
+
   tdNombre.classList.add("td-Elementos");
+  tr.appendChild(tdNombre);
 
   let tdOrigen = document.createElement("td")
   tdOrigen.innerHTML = personaje.Origen;
-  tr.appendChild(tdOrigen);
   tdOrigen.classList.add("td-Elementos");
+  tr.appendChild(tdOrigen);
 
   let tdCaracteristica = document.createElement("td");
   tdCaracteristica.innerHTML = personaje.Caracteristica;
-  tr.appendChild(tdCaracteristica);
-  tdCaracteristica.classList.add("td-Elementos");
+ tdCaracteristica.classList.add("td-Elementos");
+   tr.appendChild(tdCaracteristica);
+  
 
   let tdHabilidadPrincipal = document.createElement("td");
   tdHabilidadPrincipal.innerHTML = personaje.Habilidad;
-  tr.appendChild(tdHabilidadPrincipal);
   tdHabilidadPrincipal.classList.add("td-Elementos");
+  tr.appendChild(tdHabilidadPrincipal);
 
-  let tdAccion = document.createElement("button");
+  let tdAccion = document.createElement("button")     /* no me deja ponerle un setAttribute a los 2 botones */
   tdAccion.innerHTML = personaje.Accion;
-  tr.appendChild(tdAccion);
   tdAccion.classList.add("td-Elementos");
   tdAccion.classList.add("btn-accion");
+   tr.appendChild(tdAccion);
 
   let tdOpcion = document.createElement("button");
   tdOpcion.innerHTML = personaje.Opcion;
-  tr.appendChild(tdOpcion);
   tdOpcion.classList.add("td-Elementos");
   tdOpcion.classList.add("btn-accion");
+  tr.appendChild(tdOpcion);
 
   tablaDinamica.appendChild(tr);
 })
@@ -58,12 +60,12 @@ let progressBar = () => {
 barra.classList.toggle("final");
 
 
-  tiempo = setTimeout(mostrarFila, 2000);
+  tiempo = setTimeout(mostrarFila, 2000);    /*  me queda la barra siempre fija , no se como hacer para que se oculte */
 }
 
 
   
-    let mostrarFila = () =>{
+    let mostrarFila = () =>{     /*  quiero que se agrege una nueva fila pero no aparece como quiero */
 
  
 
@@ -87,9 +89,7 @@ barra.classList.toggle("final");
     let nuevaCelda5 = document.createElement("button")
     nuevaCelda5.innerHTML = nuevaFila
 
-
-
-    tablaDinamica.appendChild(nuevaFila)
+    tableEl.appendChild(nuevaFila)
     nuevaFila.appendChild(nuevaCelda)
     nuevaFila.appendChild(nuevaCelda2)
     nuevaFila.appendChild(nuevaCelda3)
@@ -99,15 +99,6 @@ barra.classList.toggle("final");
 
 
  
-
-
-
-
-
-   let modal = () => {
-
-    
-   }
 
 
 

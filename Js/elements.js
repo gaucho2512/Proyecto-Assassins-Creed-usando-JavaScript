@@ -12,7 +12,19 @@ const agregar = document.getElementById("agregar");
 agregar.addEventListener("click" , progressBar);
 
 
+// BOTON ELIMINAR
+const btnEliminar = getElementById("btn--Eliminar");    /*  esto todavia me falta */
+btnEliminar.addEventListener("click" , );
 
+
+
+
+
+
+
+// BOTON AGREGAR 
+const btnEditar = getElementById("btn-Editar");          /*  esto todavia me falta */
+btnEditar.addEventListener("click", );
 
 
 

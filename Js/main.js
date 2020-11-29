@@ -5,11 +5,6 @@ creacion de los datos de los personajes  */
 
 const tablaDinamica = document.getElementById("tablaDinamica");
 
-
-
-
-
-
 const personajes = [{
     
     Nombre: "Ragnar Lodblok",
