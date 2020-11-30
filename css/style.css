@@ -392,6 +392,12 @@ table {
     
     
 }
+
+.td-Head{
+    background-color: cornflowerblue;
+    border: solid 1px solid;
+    padding: 5px;
+}
  
 
 .td-Elementos{

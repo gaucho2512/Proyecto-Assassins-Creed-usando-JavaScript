@@ -3,19 +3,44 @@
 
 const cargarTabla = () => {
 
+  const tHead = document.createElement("thead");
+  let TR = document.createElement("tr")
+  let td1 = document.createElement("td")
+  td1.classList.add("td-Head");
+  td1.innerHTML = "NOMBRE";
+  let td2  = document.createElement("td")
+  td2.classList.add("td-Head");
+  td2.innerHTML = "ORIGEN";
+  let td3 = document.createElement("td")
+  td3.classList.add("td-Head");
+  td3.innerHTML = "CARACTERISTICA";
+  let td4 = document.createElement("td")
+  td4.classList.add("td-Head");
+  td4.innerHTML = "HABILIDAD";
+  let td5 = document.createElement("td")
+  td5.classList.add("td-Head");
+  td5.innerHTML = "OPCION";
+ 
+
+  tHead.appendChild(TR);
+  TR.appendChild(td1)
+  TR.appendChild(td2)
+  TR.appendChild(td3)
+  TR.appendChild(td4)
+  TR.appendChild(td5)
+ 
+
 personajes.forEach( personaje => {
 
-  const tHead = document.createElement("thead");
-  
+  tablaDinamica.appendChild(tHead)
 
-  const tr = document.createElement("tr");                       /* no me muestra los titulos ( nombre , origen , caracteristica , etc) */
-  tr.innerHTML = ""
+  let tr = document.createElement("tr")
+
   tHead.appendChild(tr)
  
 
   let tdNombre = document.createElement("td");
   tdNombre.innerHTML = personaje.Nombre;
-
   tdNombre.classList.add("td-Elementos");
   tr.appendChild(tdNombre);
 
@@ -26,8 +51,8 @@ personajes.forEach( personaje => {
 
   let tdCaracteristica = document.createElement("td");
   tdCaracteristica.innerHTML = personaje.Caracteristica;
- tdCaracteristica.classList.add("td-Elementos");
-   tr.appendChild(tdCaracteristica);
+  tdCaracteristica.classList.add("td-Elementos");
+  tr.appendChild(tdCaracteristica);
   
 
   let tdHabilidadPrincipal = document.createElement("td");
@@ -47,7 +72,7 @@ personajes.forEach( personaje => {
   tdOpcion.classList.add("btn-accion");
   tr.appendChild(tdOpcion);
 
-  tablaDinamica.appendChild(tr);
+    
 })
 }
 
