@@ -69,7 +69,7 @@ personajes.forEach( personaje => {
   let tdOpcion = document.createElement("button");
   tdOpcion.innerHTML = personaje.Opcion;
   tdOpcion.classList.add("td-Elementos");
-  tdOpcion.classList.add("btn-accion");
+  tdOpcion.classList.add("btn-eliminar");
   tr.appendChild(tdOpcion);
 
     
@@ -81,7 +81,7 @@ personajes.forEach( personaje => {
    
 let progressBar = () => {
 
-  const barra = document.getElementById("barra");
+const barra = document.getElementById("barra");
 barra.classList.toggle("final");
 
 
@@ -90,29 +90,37 @@ barra.classList.toggle("final");
 
 
   
-    let mostrarFila = () =>{     /*  quiero que se agrege una nueva fila pero no aparece como quiero */
+    let mostrarFila = () =>{     /*  se que es mas facil con un array y hacerle un push , pero no pude*/
 
- 
-
-    let nuevaFila = document.createElement("tr");
+      
+      let nuevaFila = document.createElement("tr");
     nuevaFila.classList.add("td-Elementos")
-    nuevaFila.innerHTML = tableEl
+    nuevaFila.innerHTML = ""
    
 
-    let nuevaCelda = document.createElement("th");
-    nuevaFila.classList.add("tr-Elementos")
-    nuevaCelda.innerHTML = nuevaFila
+    let nuevaCelda = document.createElement("td");
+    nuevaCelda.classList.add("td-Elementos")
+    nuevaCelda.innerHTML = ""
 
-    let nuevaCelda2 = document.createElement("th");
-    nuevaCelda2.innerHTML = nuevaFila
+    let nuevaCelda2 = document.createElement("td");
+    nuevaCelda2.classList.add("td-Elementos")
+    nuevaCelda2.innerHTML = ""
 
-    let nuevaCelda3 = document.createElement("th");
-    nuevaCelda3.innerHTML = nuevaFila
+    let nuevaCelda3 = document.createElement("td");
+    nuevaCelda3.classList.add("td-Elementos")
+    nuevaCelda3.innerHTML = ""
 
-    let nuevaCelda4 = document.createElement("button")
-    nuevaCelda4.innerHTML = nuevaFila
+    let nuevaCelda4 = document.createElement("td");
+    nuevaCelda4.classList.add("td-Elementos")
+    nuevaCelda4.innerHTML = ""
+
     let nuevaCelda5 = document.createElement("button")
-    nuevaCelda5.innerHTML = nuevaFila
+    nuevaCelda5.classList.add("td-Elementos" , "btn-accion")
+    nuevaCelda5.innerHTML = "Editar"
+
+    let nuevaCelda6 = document.createElement("button")
+    nuevaCelda6.classList.add("td-Elementos", "btn-eliminar")
+    nuevaCelda6.innerHTML = "Eliminar"
 
     tableEl.appendChild(nuevaFila)
     nuevaFila.appendChild(nuevaCelda)
@@ -120,40 +128,9 @@ barra.classList.toggle("final");
     nuevaFila.appendChild(nuevaCelda3)
     nuevaFila.appendChild(nuevaCelda4)
     nuevaFila.appendChild(nuevaCelda5)
+    nuevaFila.appendChild(nuevaCelda6)
    }
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
