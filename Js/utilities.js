@@ -85,7 +85,7 @@ personajes.forEach( personaje => {
     const barraSpinner = document.getElementById("boton-cargar");
     barraSpinner.classList.toggle("hidden");
    
-   let barra = setTimeout(mostrarFila, 2000);   
+    setTimeout(mostrarFila, 2000);   
    
    barraSpinner.classList.add("visible"); // no me deja desaparecer la barra
    
@@ -143,74 +143,25 @@ personajes.forEach( personaje => {
     
    }
 
+
+   // FUNCION EDITAR ---->
   
-    
-
-
-
-
-
-
-
-
-
-
-
-
-/*  Iterar el arreglo con un ciclo FOR
-    (segunda forma de mostrar la tabla)
-                                         
-
-
-let TablaDinamica = (Objetos) => {
-   
-    let theadEl = document.createElement("thead");
-    let trEl = document.createElement("tr");
-
-   
+  const editar = () => {
 
     
-    for (let i = 0; i < Objetos.length; i++) {
-         let thEl = document.createElement("th");
-         thEl.innerHTML = Objetos[i];
-        
-      
-         trEl.appendChild(thEl);
-    }
     
-         theadEl.appendChild(trEl);
-        
-    
-  };
-  
-  let crearFila = (elemento) => {
-     let trEl = document.createElement("tr");
-    
-    for (clave in elemento) {
-     let tdEl = document.createElement("td");
-     tdEl.classList.add("td-Elementos")
-     tdEl.innerHTML = elemento[clave];
-     
-      trEl.appendChild(tdEl);
-    }
-   
-    return trEl;
-  };
+     console.log(editar())
+  }
 
-  
-  let crearCuerpo = (elementos) => {
-    let tbodyEl = document.createElement("tbody");
-    for (let i = 0; i < elementos.length; i++) {
-      tbodyEl.appendChild(crearFila(elementos[i]));
-    }
-   
-    tableEl.appendChild(tbodyEl);
-  };
 
- 
 
- */
 
+  // FUNCION ELIMINAR ---->
+
+  const eliminar = () => {
+
+       alert("se elimino")
+  }
 
 
 

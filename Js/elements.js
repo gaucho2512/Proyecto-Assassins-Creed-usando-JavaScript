@@ -22,13 +22,13 @@ window.addEventListener("DOMContentLoaded", () => {
   
   
   // BOTON EDITAR
-  const btnEditar = getElementById("boton-editar");          /*  esto todavia me falta */
+  const btnEditar = document.getElementById("boton-editar");          /*  esto todavia me falta */
   btnEditar.addEventListener("click", editar );
   
   
   
   // BOTON ELIMINAR
-  const btnEliminar = getElementById("boton-eliminar");    /*  esto todavia me falta */
+  const btnEliminar = document.getElementById("boton-eliminar");    /*  esto todavia me falta */
   btnEliminar.addEventListener("click" , eliminar );
   
 
