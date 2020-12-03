@@ -78,20 +78,18 @@ personajes.forEach( personaje => {
 }
 
 
-  //  funcion del evento BOTON DE AGREGAR + tiempo con un progress bar 
+  //  funcion del SPINNER...
    
- let progressBar = () => {
+  let spinner = () => {
 
-const barra = document.getElementById("barra");
-barra.classList.toggle("final");
-
-
-  tiempo = setTimeout(mostrarFila, 2000);   
-}
- 
-
-
-
+    const barraSpinner = document.getElementById("boton-cargar");
+    barraSpinner.classList.toggle("hidden");
+   
+   let barra = setTimeout(mostrarFila, 2000);   
+   
+   barraSpinner.classList.add("visible"); // no me deja desaparecer la barra
+   
+    }
 
 
 /*  Funcion para mostrar los datos agregados en la tabla */
@@ -142,7 +140,7 @@ barra.classList.toggle("final");
     nuevaFila.appendChild(nuevaCelda5)
     nuevaFila.appendChild(nuevaCelda6)
 
-    progressBar()
+    
    }
 
   
