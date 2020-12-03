@@ -363,18 +363,39 @@ h5{
 /*     HOJA 4                Personajes                 HOJA  4   */
 
 
-.imagen-fondo{
-    
-    position: absolute;
-    width: 100%;
-}
 
 .section-personajes {
     width: 100%;
-    height: 1500px;
+    height: 1600px;
     padding: 250px;
+    display: flex;
+    padding-top: 700px;
+   
+   
     
 }
+    
+
+
+  
+
+
+.imagen-trans{
+
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 100px;
+        left: 0;
+        opacity: 0.66
+
+
+    
+}
+
+    
+
 
 .titulo-personajes{
     text-align: center;
@@ -410,13 +431,13 @@ table {
 }
 
 .btn-accion{
-    color: blue;
     margin-top: 5px;
     margin-right: 5px;
     display: inline-block;
     width: 75px;
     border-radius: 5px;
     padding: 1px;
+    margin-bottom: 5px;
    
 
 }
@@ -434,15 +455,25 @@ table {
 
 
  .btn-eliminar{
-    color: red;
     margin-top: 5px;
     margin-right: 5px;
     display: inline-block;
     width: 75px;
     border-radius: 5px;
     padding: 1px;
+    margin-bottom: 5px;
  }
 
+
+ .form-control{
+    margin-bottom: 12px;
+ }
+
+
+ .titulo-modal{
+     font-size: 16px;
+     margin-top: 35px;
+ }
 
  
     

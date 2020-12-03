@@ -68,29 +68,22 @@
 
   <!-- Seccion Central TABLA -->
 
-<div class="imagen-fondo"> 
-  <img src="..." alt="imagen-fondo">
-</div>
-
-
-
-
   <div class="section-personajes">
-
-
+   
+     <div>
+        <img class="imagen-trans" src="../image/foto-personajes.jpg" alt="foto fondo"> 
+     </div>
+  
     <div class="seccion-tabla">
+
+     
 
       <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
 
 
       <table id="tablaDinamica"> </table>
 
-
-      <!-- Progress Bar -->
-      <div class="progress">
-        <div id="barra" class="progress-bar progress-bar-striped progress-bar-animated inicio animacion"
-          role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
+      
 
 
 
@@ -111,12 +104,20 @@
         </button>
       </div>
       <div class="modal-body">
-        SE ESTA POR AGREGAR UN NUEVO PERSONAJE! 
-        DESEA CONTINUAR?
+        <div>
+          <input id="nombreModal" type="text" class="form-control" placeholder="NOMBRE">
+          <input id="origenModal" type="text" class="form-control" placeholder="ORIGEN">
+          <input id="caracteristicaModal" type="text" class="form-control" placeholder="CARACTERISTICA">
+          <input id="habilidadModal" type="text" class="form-control" placeholder="HABILIDAD">
+        </div>
+              <h4 class="titulo-modal">
+               SE ESTA POR AGREGAR UN NUEVO PERSONAJE! 
+               DESEA CONTINUAR?
+             </h4> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button  id="agregar" type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+        <button  id="agregar" type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
       </div>
     </div>
   </div>
