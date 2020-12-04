@@ -496,6 +496,10 @@ table {
     visibility: hidden;
 }
 
+.visible{
+    visibility: visible;
+}
+
 
 
 

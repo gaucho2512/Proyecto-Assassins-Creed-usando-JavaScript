@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Boton agregar personaje // SPINNER
   const agregar = document.getElementById("agregar");
-  agregar.addEventListener("click" , spinner);
+  agregar.addEventListener("click" , agregarPersonaje);
   
   
   

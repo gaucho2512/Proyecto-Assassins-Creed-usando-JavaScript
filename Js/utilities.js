@@ -28,9 +28,11 @@ const cargarTabla = () => {
   TR.appendChild(td3)
   TR.appendChild(td4)
   TR.appendChild(td5)
- 
 
-personajes.forEach( personaje => {
+
+  // recorro los datos con un FOReach...
+ 
+  personajes.forEach( personaje => {
 
   tablaDinamica.appendChild(tHead)
 
@@ -80,14 +82,11 @@ personajes.forEach( personaje => {
 
   //  funcion del SPINNER...
    
-  let spinner = () => {
-
-    const barraSpinner = document.getElementById("boton-cargar");
-    barraSpinner.classList.toggle("hidden");
+  let agregarPersonaje = () => {
+   const barraSpinner = document.getElementById("boton-cargar")
+    barraSpinner.classList.add("visible");
    
     setTimeout(mostrarFila, 2000);   
-   
-   barraSpinner.classList.add("visible"); // no me deja desaparecer la barra
    
     }
 
@@ -140,15 +139,16 @@ personajes.forEach( personaje => {
     nuevaFila.appendChild(nuevaCelda5)
     nuevaFila.appendChild(nuevaCelda6)
 
-    
+    barraSpinner = document.getElementById("boton-cargar").classList.remove("visible");
    }
+  
 
 
    // FUNCION EDITAR ---->
   
   const editar = () => {
 
-    
+
     
      console.log(editar())
   }
