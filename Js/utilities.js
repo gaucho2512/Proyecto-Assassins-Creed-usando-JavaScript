@@ -148,9 +148,7 @@ const cargarTabla = () => {
   
   const editar = () => {
 
-
-    
-     console.log(editar())
+      alert("se puede editar")
   }
 
 
@@ -159,7 +157,7 @@ const cargarTabla = () => {
   // FUNCION ELIMINAR ---->
 
   const eliminar = () => {
-
+  
        alert("se elimino")
   }
 
