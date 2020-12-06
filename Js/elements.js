@@ -8,12 +8,13 @@ const tableEl = document.getElementById("tablaDinamica");
 /* Evento de la tabla dinamica*/
 window.addEventListener("DOMContentLoaded", () => {
    cargarTabla()
+   
   });
 
 
 
   //Boton agregar personaje // SPINNER
-  const agregar = document.getElementById("agregar");
+  const agregar = document.getElementById("btn-agregar-modal");
   agregar.addEventListener("click" , agregarPersonaje);
   
   
@@ -22,16 +23,22 @@ window.addEventListener("DOMContentLoaded", () => {
   
   
   // BOTON EDITAR
-          /*  esto todavia me falta */
-  const btnEditar = document.getElementById("boton-editar")
-  btnEditar.addEventListener("click", editar );
-  
-  
+
+
+ const btnEditar = document.getElementById("boton-editar")
+ btnEditar.addEventListener("click", editarPersonaje)
+
+
+
   
   // BOTON ELIMINAR
-     /*  esto todavia me falta */
+
   const btnEliminar = document.getElementById("boton-eliminar"); 
-  btnEliminar.addEventListener("click" , eliminar );
+  btnEliminar.addEventListener("click" , eliminarPersonaje);
+  
+ 
+
+
   
 
 

@@ -140,27 +140,38 @@ const cargarTabla = () => {
     nuevaFila.appendChild(nuevaCelda6)
 
     barraSpinner = document.getElementById("boton-cargar").classList.remove("visible");
+
    }
-  
+
 
 
    // FUNCION EDITAR ---->
   
-  const editar = () => {
 
-      alert("se puede editar")
-  }
+  const editarPersonaje = () => {
+    const mostrarModalEliminar = document.getElementById("modal-editar");
+ 
+  
+    
+   console.log("se puede editar")
+
+}
+
+  
+  
 
 
 
 
   // FUNCION ELIMINAR ---->
 
-  const eliminar = () => {
-  
-       alert("se elimino")
-  }
 
+
+  const eliminarPersonaje = () => {
+  const mostrarModalEliminar = document.getElementById("modal-eliminar");
+ 
+  console.log("se elimino")
+} 
 
 
 
