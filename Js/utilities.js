@@ -1,5 +1,5 @@
 
-/* Proceso de la tabla dinamica ---- primera manera, a traves de un FOReach */
+/* Proceso de la tabla dinamica ---- , creacion del Thead  */
 
 const cargarTabla = () => {
 
@@ -32,7 +32,7 @@ const cargarTabla = () => {
 
   // recorro los datos con un FOReach...
  
-  personajes.forEach( personaje => {
+  personajes.forEach ( personaje => {
 
   tablaDinamica.appendChild(tHead)
 
@@ -67,12 +67,18 @@ const cargarTabla = () => {
   tdAccion.innerHTML = personaje.Accion;
   tdAccion.setAttribute("id","boton-editar")
   tdAccion.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm")
+  tdAccion.addEventListener("click", () => {
+    console.log("se edito");
+  })
   tr.appendChild(tdAccion);
 
   let tdOpcion = document.createElement("button");
   tdOpcion.innerHTML = personaje.Opcion;
   tdOpcion.setAttribute("id","boton-eliminar")
   tdOpcion.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm")
+  tdOpcion.addEventListener("click", () => {
+    console.log("se elimino");
+  })
   tr.appendChild(tdOpcion);
 
     
@@ -131,7 +137,7 @@ const cargarTabla = () => {
     nuevaCelda6.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm")
     nuevaCelda6.innerHTML = "Eliminar"
 
-    tableEl.appendChild(nuevaFila)
+    tablaDinamica.appendChild(nuevaFila)
     nuevaFila.appendChild(nuevaCelda)
     nuevaFila.appendChild(nuevaCelda2)
     nuevaFila.appendChild(nuevaCelda3)
@@ -140,38 +146,9 @@ const cargarTabla = () => {
     nuevaFila.appendChild(nuevaCelda6)
 
     barraSpinner = document.getElementById("boton-cargar").classList.remove("visible");
-
    }
-
-
-
-   // FUNCION EDITAR ---->
   
 
-  const editarPersonaje = () => {
-    const mostrarModalEliminar = document.getElementById("modal-editar");
- 
-  
-    
-   console.log("se puede editar")
-
-}
-
-  
-  
-
-
-
-
-  // FUNCION ELIMINAR ---->
-
-
-
-  const eliminarPersonaje = () => {
-  const mostrarModalEliminar = document.getElementById("modal-eliminar");
- 
-  console.log("se elimino")
-} 
 
 
 

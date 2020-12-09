@@ -1,5 +1,4 @@
-/* PRIMERA FORMA DE MOSTRAR LA TABLA 
-creacion de los datos de los personajes  */
+/*   creacion de los datos de los personajes  */
 
 /* Array de objetos de personajes */
 
