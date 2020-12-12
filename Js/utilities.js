@@ -1,93 +1,95 @@
 
-/* Proceso de la tabla dinamica ---- , creacion del Thead  */
+/* Proceso de la tabla dinamica ---- CREACION DEL THEAD */
+const HeaderTabla = (claves) => {
 
-const cargarTabla = () => {
+  let theadEl = document.createElement("thead");
+   theadEl.classList.add("td-Head");
+  let trEl = document.createElement("tr")
+  trEl.classList.add("td-Elementos");
+      
 
-  const tHead = document.createElement("thead");
-  let TR = document.createElement("tr")
-  let td1 = document.createElement("td")
-  td1.classList.add("td-Head");
-  td1.innerHTML = "NOMBRE";
-  let td2  = document.createElement("td")
-  td2.classList.add("td-Head");
-  td2.innerHTML = "ORIGEN";
-  let td3 = document.createElement("td")
-  td3.classList.add("td-Head");
-  td3.innerHTML = "CARACTERISTICA";
-  let td4 = document.createElement("td")
-  td4.classList.add("td-Head");
-  td4.innerHTML = "HABILIDAD";
-  let td5 = document.createElement("td")
-  td5.classList.add("td-Head");
-  td5.innerHTML = "OPCION";
- 
-
-  tHead.appendChild(TR);
-  TR.appendChild(td1)
-  TR.appendChild(td2)
-  TR.appendChild(td3)
-  TR.appendChild(td4)
-  TR.appendChild(td5)
-
-
-  // recorro los datos con un FOReach...
- 
-  personajes.forEach ( personaje => {
-
-  tablaDinamica.appendChild(tHead)
-
-  let tr = document.createElement("tr")
-  tr.classList.add("td-Elementos");
-
-  tHead.appendChild(tr)
- 
-
-  let tdNombre = document.createElement("td");
-  tdNombre.innerHTML = personaje.Nombre;
-  tdNombre.classList.add("td-Elementos");
-  tr.appendChild(tdNombre);
-
-  let tdOrigen = document.createElement("td")
-  tdOrigen.innerHTML = personaje.Origen;
-  tdOrigen.classList.add("td-Elementos");
-  tr.appendChild(tdOrigen);
-
-  let tdCaracteristica = document.createElement("td");
-  tdCaracteristica.innerHTML = personaje.Caracteristica;
-  tdCaracteristica.classList.add("td-Elementos");
-  tr.appendChild(tdCaracteristica);
-  
-
-  let tdHabilidadPrincipal = document.createElement("td");
-  tdHabilidadPrincipal.innerHTML = personaje.Habilidad;
-  tdHabilidadPrincipal.classList.add("td-Elementos");
-  tr.appendChild(tdHabilidadPrincipal);
-
-  let tdAccion = document.createElement("button")   
-  tdAccion.innerHTML = personaje.Accion;
-  tdAccion.setAttribute("id","boton-editar")
-  tdAccion.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm")
-  tdAccion.addEventListener("click", () => {
-    console.log("se edito");
-  })
-  tr.appendChild(tdAccion);
-
-  let tdOpcion = document.createElement("button");
-  tdOpcion.innerHTML = personaje.Opcion;
-  tdOpcion.setAttribute("id","boton-eliminar")
-  tdOpcion.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm")
-  tdOpcion.addEventListener("click", () => {
-    console.log("se elimino");
-  })
-  tr.appendChild(tdOpcion);
-
+  for (let i = 0; i < claves.length; i++) {
+    let thEl = document.createElement("th");
     
-})
-}
+    thEl.innerHTML = claves[i];
+    trEl.appendChild(thEl);
+ 
+  }
+  
+  theadEl.appendChild(trEl);
+  
+  tablaDinamica.appendChild(theadEl);
+
+ let trOpciones = document.createElement("tr");
+  trOpciones.innerHTML = "Opciones"
+   trEl.appendChild(trOpciones);  
+};
+
+
+/*  CREACION DE LAS FILAS */
+const createRows = (elemento) => {
+  let trEl = document.createElement("tr");
+  trEl.setAttribute("id" , "trRow");
+  trEl.classList.add("td-Elementos");
+ 
+
+  for (clave in elemento) {
+    let tdEl = document.createElement("td");
+    tdEl.setAttribute("id" , "tdElId")
+    tdEl.classList.add("td-Elementos");
+    tdEl.innerHTML = elemento[clave];
+ 
+    trEl.appendChild(tdEl);
+  }
+ 
+
+
+  // Creacion de los Botones editar y eliminar - con sus modales 
+  let btnEditar = document.createElement("button");
+  btnEditar.innerHTML = "Editar";
+  btnEditar.setAttribute("id","boton-editar");
+  btnEditar.setAttribute("data-target", "#modal-edit");
+  btnEditar.setAttribute("data-toggle","modal")
+  btnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm");
+  
+   trEl.appendChild(btnEditar); 
+   
+  let btnEliminar = document.createElement("button");
+  btnEliminar.innerHTML = "Eliminar";
+  btnEliminar.setAttribute("id","boton-eliminar");
+  btnEliminar.setAttribute("data-target", "#modal-elim");
+  btnEliminar.setAttribute("data-toggle","modal")
+  btnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm");
+  
+ 
+  trEl.appendChild(btnEliminar);  
+ 
+  return trEl;
+};
+ 
+
+/* CREACION DEL TBODY */
+const createBody = (elementos) => {
+  let tbodyEl = document.createElement("tbody");
+  tbodyEl.setAttribute("id" , "tbodyElId")
+
+  for (let i = 0; i < elementos.length; i++) {
+    tbodyEl.appendChild(createRows(elementos[i]));
+  }
+  
+  tablaDinamica.appendChild(tbodyEl);
+};
+
+
+/*  Evento de cargar pagina */
+window.addEventListener("load", () => {
+  HeaderTabla(clavesProducto);
+  createBody(dataParseada.personajes);
+});
+
 
 
   //  funcion del SPINNER...
-   
   let agregarPersonaje = () => {
    const barraSpinner = document.getElementById("boton-cargar")
     barraSpinner.classList.add("visible");
@@ -97,63 +99,88 @@ const cargarTabla = () => {
     }
 
 
-/*  Funcion para mostrar los datos agregados en la tabla */
+/*  Funcion del BOTON AGREGAR personaje */
+   const mostrarFila = () => {
+   
+    let newRow = document.createElement("tr");
+    
+    let newCellNombre = document.createElement("td");
+    newCellNombre.classList.add("td-Elementos")
+    newCellNombre.innerHTML = nombreModal.value;
 
-    let mostrarFila = () =>{  
+    let newCellOrigen = document.createElement("td");
+    newCellOrigen.classList.add("td-Elementos")
+    newCellOrigen.innerHTML = origenModal.value;
 
-   nombreModal = document.getElementById("nombreModal");
-   origenModal = document.getElementById("origenModal");
-   caracteristicaModal = document.getElementById("caracteristicaModal");
-   habilidadModal = document.getElementById("habilidadModal");
+    let newCellCaracteristica = document.createElement("td");
+    newCellCaracteristica.classList.add("td-Elementos")
+    newCellCaracteristica.innerHTML = caracteristicaModal.value
+
+    let newCellHabilidad = document.createElement("td");
+    newCellHabilidad.classList.add("td-Elementos")
+    newCellHabilidad.innerHTML = habilidadModal.value;
+
+    let newCellBtnEditar = document.createElement("button")
+    newCellBtnEditar.setAttribute("id","boton-editar")
+    newCellBtnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm")
+    newCellBtnEditar.innerHTML = "Editar"
+    newCellBtnEditar.setAttribute("data-target", "#modal-edit");
+    newCellBtnEditar.setAttribute("data-toggle","modal")
     
 
-      
-      let nuevaFila = document.createElement("tr");
-    nuevaFila.classList.add("td-Elementos")
 
-    let nuevaCelda = document.createElement("td");
-    nuevaCelda.classList.add("td-Elementos")
-    nuevaCelda.innerHTML = nombreModal.value;
+    let  newCellBtnEliminar = document.createElement("button")
+    newCellBtnEliminar.setAttribute("id","boton-eliminar")
+    newCellBtnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm")
+    newCellBtnEliminar.innerHTML = "Eliminar"
+    newCellBtnEliminar.setAttribute("data-target", "#modal-elim");
+    newCellBtnEliminar.setAttribute("data-toggle","modal")
+   
 
-    let nuevaCelda2 = document.createElement("td");
-    nuevaCelda2.classList.add("td-Elementos")
-    nuevaCelda2.innerHTML = origenModal.value;
-
-    let nuevaCelda3 = document.createElement("td");
-    nuevaCelda3.classList.add("td-Elementos")
-    nuevaCelda3.innerHTML = caracteristicaModal.value
-
-    let nuevaCelda4 = document.createElement("td");
-    nuevaCelda4.classList.add("td-Elementos")
-    nuevaCelda4.innerHTML = habilidadModal.value;
-
-    let nuevaCelda5 = document.createElement("button")
-    nuevaCelda5.setAttribute("id","boton-editar")
-    nuevaCelda5.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm")
-    nuevaCelda5.innerHTML = "Editar"
-
-    let nuevaCelda6 = document.createElement("button")
-    nuevaCelda6.setAttribute("id","boton-eliminar")
-    nuevaCelda6.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm")
-    nuevaCelda6.innerHTML = "Eliminar"
-
-    tablaDinamica.appendChild(nuevaFila)
-    nuevaFila.appendChild(nuevaCelda)
-    nuevaFila.appendChild(nuevaCelda2)
-    nuevaFila.appendChild(nuevaCelda3)
-    nuevaFila.appendChild(nuevaCelda4)
-    nuevaFila.appendChild(nuevaCelda5)
-    nuevaFila.appendChild(nuevaCelda6)
+    tablaDinamica.appendChild(newRow)
+    newRow.appendChild(newCellNombre)
+    newRow.appendChild(newCellOrigen)
+    newRow.appendChild(newCellCaracteristica)
+    newRow.appendChild(newCellHabilidad)
+    newRow.appendChild(newCellBtnEditar)
+    newRow.appendChild(newCellBtnEliminar) 
 
     barraSpinner = document.getElementById("boton-cargar").classList.remove("visible");
-   }
+   };
+  
+   /* Evento agregar personaje */
+  let btnAgregar = document.getElementById("agregar");
+  btnAgregar.addEventListener("click", agregarPersonaje);
+
+ 
+
+
+
+/* Funcion MODAL ELIMINAR PERSONAJE */
+const btnEliminarModal = document.getElementById("btn-eliminar-modal");
+eliminarPersonaje = () => {
+
+document.getElementById("tablaDinamica").deleteRow(-1);
+}
+btnEliminarModal.addEventListener("click" , eliminarPersonaje );
+
+
+
+
+
+/* Funcion MODAL EDITAR PERSONAJE */
+const btnEditarModal = document.getElementById("btn-editar-modal");
+
+editarPersonaje = () => {
+
+  
   
 
+ 
+}
 
 
-
-
-
+btnEditarModal.addEventListener("click" , editarPersonaje );
 
 
 
