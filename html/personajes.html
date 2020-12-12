@@ -69,79 +69,122 @@
   <!-- Seccion Central TABLA -->
 
   <div class="section-personajes">
-   
-     <div>
-        <img class="imagen-trans" src="../image/foto-personajes.jpg" alt="foto fondo"> 
-     </div>
-  
-    <div class="seccion-tabla">
 
+    <div>
+      <img class="imagen-trans" src="../image/fondo-personajes2.jpg" alt="foto fondo">
+    </div>
+
+  </div>
+
+
+
+  <div class="seccion-tabla">
+
+
+
+    <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-6">
+
+          <div class="zona-boton">
+          
+               <label class="switch" >
+                <input id="checkbox-filtro" type="checkbox">
+                 <span  class="slider round"></span>
+               </label>
+               <p class="parrafo-filtro">Activar / Desactivar FILTROS</p>
+
+          </div>
+
+        </div>
+        <div class="col-6 col-md-6">
+
+          <div class="zona-buscar hidden-filtro"  id="buscador-filtro"  >
+
+          <input class="form-control input-filtro" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary btn-filtro " type="submit">Buscar</button>
+        
      
 
-      <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
+          </div>
 
-
-      <table id="tablaDinamica"> </table>
-
-      
-
-
-
-      
-      <!-- Button modal AGREGAR -->
-<button type="button" class="btn btn-success btn-agregar" data-toggle="modal" data-target="#staticBackdrop">
-  Agregar Personaje
-</button>
-
-<!-- Modal AGREGAR -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">AGREGAR PERSONAJE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <input id="nombreModal" type="text" class="form-control" placeholder="NOMBRE">
-          <input id="origenModal" type="text" class="form-control" placeholder="ORIGEN">
-          <input id="caracteristicaModal" type="text" class="form-control" placeholder="CARACTERISTICA">
-          <input id="habilidadModal" type="text" class="form-control" placeholder="HABILIDAD">
         </div>
-              <h4 class="titulo-modal">
-               SE ESTA POR AGREGAR UN NUEVO PERSONAJE! 
-               DESEA CONTINUAR?
-             </h4> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button  id="agregar" type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
       </div>
     </div>
-  </div>
-</div>
+    <!-- buscador / filtro -->
+    
+        
+   
 
 
-<!-- SPINNER -->
 
-<button id="boton-cargar" class="btn btn-primary text-nowrap btn-spinner hidden" type="button">
-  <span class="spinner-border spinner-border-sm mr-2"></span>
-  Enviando datos...
-</button>
 
+
+
+    <table id="tablaDinamica"> </table>
+
+
+
+    <!-- Button modal AGREGAR -->
+    <button type="button" class="btn btn-success btn-agregar" data-toggle="modal" data-target="#staticBackdrop">
+      Agregar Personaje
+    </button>
+
+    <!-- Modal AGREGAR -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">AGREGAR PERSONAJE</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <input id="nombreModal" type="text" class="form-control" placeholder="NOMBRE">
+              <input id="origenModal" type="text" class="form-control" placeholder="ORIGEN">
+              <input id="caracteristicaModal" type="text" class="form-control" placeholder="CARACTERISTICA">
+              <input id="habilidadModal" type="text" class="form-control" placeholder="HABILIDAD">
+            </div>
+            <h4 class="titulo-modal">
+              SE ESTA POR AGREGAR UN NUEVO PERSONAJE!
+              DESEA CONTINUAR?
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button id="agregar" type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- SPINNER -->
+
+    <button id="boton-cargar" class="btn btn-primary text-nowrap btn-spinner hidden" type="button">
+      <span class="spinner-border spinner-border-sm mr-2"></span>
+      Enviando datos...
+    </button>
+
+
+
   </div>
 
-    </div>
-  </div>
 
 
-  
+
+
+
   <!-- MODAL EDITAR -->
 
-  <div class="modal fade" id="modal-edit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-edit" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -152,30 +195,30 @@
         </div>
         <div class="modal-body">
           <div>
-            <input id="editarNombre" type="text" class="form-control" placeholder="Nombre" > 
-            <input id="editarOrigen" type="text" class="form-control" placeholder="Origen"> 
-            <input id="editarCaracteristica" type="text" class="form-control" placeholder="Caracteristica" >
-            <input id="editarHabilidad" type="text" class="form-control" placeholder="Habilidad" >
+            <input id="editarNombre" type="text" class="form-control" placeholder="Nombre">
+            <input id="editarOrigen" type="text" class="form-control" placeholder="Origen">
+            <input id="editarCaracteristica" type="text" class="form-control" placeholder="Caracteristica">
+            <input id="editarHabilidad" type="text" class="form-control" placeholder="Habilidad">
           </div>
-                <h4 class="titulo-modal">
-                 SE ESTA POR EDITAR UN PERSONAJE! 
-                 DESEA GUARDARLO?
-               </h4> 
+          <h4 class="titulo-modal">
+            ESTA POR EDITAR EL PERSONAJE!
+            DESEA GUARDARLO?
+          </h4>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button  id="btn-editar-modal" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+          <button id="btn-editar-modal" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
         </div>
       </div>
     </div>
   </div>
 
-  
-  
-    <!-- MODAL ELIMINAR -->
-  
-  <div id="modal-eliminar" > 
-    <div class="modal" tabindex="-1"  id="modal-elim">
+
+
+  <!-- MODAL ELIMINAR -->
+
+  <div id="modal-eliminar">
+    <div class="modal" tabindex="-1" id="modal-elim">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -189,15 +232,17 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button id="btn-eliminar-modal" type="button" data-dismiss="modal" class="btn btn-primary">Continuar</button>
+            <button id="btn-eliminar-modal" type="button" data-dismiss="modal"
+              class="btn btn-primary">Continuar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  
-    
+
+
+
+
 
 
 

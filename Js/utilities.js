@@ -10,6 +10,7 @@ const HeaderTabla = (claves) => {
 
   for (let i = 0; i < claves.length; i++) {
     let thEl = document.createElement("th");
+    thEl.classList.add("td-Head");
     
     thEl.innerHTML = claves[i];
     trEl.appendChild(thEl);
@@ -20,9 +21,10 @@ const HeaderTabla = (claves) => {
   
   tablaDinamica.appendChild(theadEl);
 
- let trOpciones = document.createElement("tr");
-  trOpciones.innerHTML = "Opciones"
-   trEl.appendChild(trOpciones);  
+ let thOpciones = document.createElement("th");
+  thOpciones.innerHTML = "Opciones"
+  thOpciones.classList.add("td-Head");
+   trEl.appendChild(thOpciones);  
 };
 
 
@@ -122,7 +124,7 @@ window.addEventListener("load", () => {
 
     let newCellBtnEditar = document.createElement("button")
     newCellBtnEditar.setAttribute("id","boton-editar")
-    newCellBtnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm")
+    newCellBtnEditar.classList.add("td-Elementos" ,"btn-accion", "btn" , "btn-outline-primary", "btn-sm")
     newCellBtnEditar.innerHTML = "Editar"
     newCellBtnEditar.setAttribute("data-target", "#modal-edit");
     newCellBtnEditar.setAttribute("data-toggle","modal")
@@ -145,7 +147,8 @@ window.addEventListener("load", () => {
     newRow.appendChild(newCellBtnEditar)
     newRow.appendChild(newCellBtnEliminar) 
 
-    barraSpinner = document.getElementById("boton-cargar").classList.remove("visible");
+    barraSpinner = document.getElementById("boton-cargar")
+    barraSpinner.classList.remove("visible");
    };
   
    /* Evento agregar personaje */
@@ -156,19 +159,20 @@ window.addEventListener("load", () => {
 
 
 
-/* Funcion MODAL ELIMINAR PERSONAJE */
+/* Funcion MODAL ELIMINAR PERSONAJE */                                     // falta a medias
 const btnEliminarModal = document.getElementById("btn-eliminar-modal");
 eliminarPersonaje = () => {
 
 document.getElementById("tablaDinamica").deleteRow(-1);
 }
+/* evento eliminar */
 btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
 
 
 
 
-/* Funcion MODAL EDITAR PERSONAJE */
+/* Funcion MODAL EDITAR PERSONAJE */                                    // todavia falta
 const btnEditarModal = document.getElementById("btn-editar-modal");
 
 editarPersonaje = () => {
@@ -178,9 +182,29 @@ editarPersonaje = () => {
 
  
 }
-
-
+/* evento editar */                                         
 btnEditarModal.addEventListener("click" , editarPersonaje );
+
+
+
+
+/* Funcion mostrar filtro */                                            // a medias
+
+const mostrarFiltro = () => {
+   const buscadorFiltro = document.getElementById("buscador-filtro");
+   buscadorFiltro.classList.remove("hidden-filtro");
+}
+const checkboxFiltro = document.getElementById("checkbox-filtro");
+checkboxFiltro.addEventListener("click" , mostrarFiltro);
+
+
+/* Buscar por filtrado */
+
+const btnFiltro = document.getElementById("btn-filtro");
+btnFiltro.addEventListener("click" , () => {
+  alert("se esta buscando")
+} )
+
 
 
 

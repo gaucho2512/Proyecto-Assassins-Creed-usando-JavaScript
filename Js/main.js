@@ -14,6 +14,7 @@ let data = ` {
         " Caracteristica": "Guerrero Vikingo",
         " Habilidad": "Ojo de Odin" 
       
+      
        
        
 },
