@@ -11,6 +11,7 @@ let data = ` {
     
         " Nombre": "Ragnar Lodblok",
         " Origen": "Northumbria , Reino Unido",
+        " Edad" : "41" ,
         " Caracteristica": "Guerrero Vikingo",
         " Habilidad": "Ojo de Odin" 
       
@@ -21,6 +22,7 @@ let data = ` {
 {
         "Nombre": "Alfredo el Grande",
         "Origen": "Winchester , Wessex",
+        " Edad" : "65" , 
         "Caracteristica": "Rey de Wessex",
         "Habilidad": "Cruz de Wincher"
         
@@ -29,6 +31,7 @@ let data = ` {
 {
         "Nombre": "Eivor",
         "Origen": "Noruega , Inglaterra",
+        " Edad" : "23" , 
         "Caracteristica": "Guerrero Vikingo",
         "Habilidad": "Sigilio del cuervo"
        
@@ -37,6 +40,7 @@ let data = ` {
 {
         "Nombre": "Sigurd Styrbjornsson",
         "Origen": "Noruega , Reino Unido",
+        " Edad" : "38" , 
         "Caracteristica": "Guerrero Vikingo",
         "Habilidad": "Death Knife"
       
@@ -46,6 +50,7 @@ let data = ` {
 {
         "Nombre": "Osvaldo de Estanglia",
         "Origen": "Estanglia , Inglaterra",
+        " Edad" : "39" , 
         "Caracteristica": "Rey de Estanglia",
         "Habilidad": "Tropa sajona"
         
@@ -55,6 +60,7 @@ let data = ` {
 {
         "Nombre": "Halfdan Ragnarsson",
         "Origen": "Northumbria , Reino Unido",
+        " Edad" : "26" ,
         "Caracteristica": "Guerrero Vikingo",
         "Habilidad": "Espada sesgo"
      
@@ -69,8 +75,20 @@ let data = ` {
 
 let dataParseada = JSON.parse(data);
 let clavesProducto = Object.keys(dataParseada.personajes[0]);
-   
 
+
+/* Filtrar Personajes */
+
+let arrayPersonajes = clavesProducto.filter(function(persona)  {
+        return persona.caracteristica === "Guerrero Vikingo";
+   })
+      .map(function(persona){
+          return persona.caracteristica;
+      });
+          
+      
+ 
+   console.log(arrayPersonajes)
 
 
  

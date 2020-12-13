@@ -114,6 +114,10 @@ window.addEventListener("load", () => {
     newCellOrigen.classList.add("td-Elementos")
     newCellOrigen.innerHTML = origenModal.value;
 
+    let newCellEdad = document.createElement("td");
+    newCellEdad.classList.add("td-Elementos")
+    newCellEdad.innerHTML = Modal.value;
+
     let newCellCaracteristica = document.createElement("td");
     newCellCaracteristica.classList.add("td-Elementos")
     newCellCaracteristica.innerHTML = caracteristicaModal.value
@@ -142,6 +146,7 @@ window.addEventListener("load", () => {
     tablaDinamica.appendChild(newRow)
     newRow.appendChild(newCellNombre)
     newRow.appendChild(newCellOrigen)
+    newRow.appendChild(newCellEdad)
     newRow.appendChild(newCellCaracteristica)
     newRow.appendChild(newCellHabilidad)
     newRow.appendChild(newCellBtnEditar)
@@ -201,9 +206,8 @@ checkboxFiltro.addEventListener("click" , mostrarFiltro);
 /* Buscar por filtrado */
 
 const btnFiltro = document.getElementById("btn-filtro");
-btnFiltro.addEventListener("click" , () => {
-  alert("se esta buscando")
-} )
+
+
 
 
 
