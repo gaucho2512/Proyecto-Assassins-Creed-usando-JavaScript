@@ -63,7 +63,6 @@ const createRows = (elemento) => {
   btnEliminar.setAttribute("data-toggle","modal")
   btnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm");
   
- 
   trEl.appendChild(btnEliminar);  
  
   return trEl;
@@ -84,7 +83,7 @@ const createBody = (elementos) => {
 
 
 /*  Evento de cargar pagina */
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   HeaderTabla(clavesProducto);
   createBody(dataParseada.personajes);
 });
@@ -101,12 +100,15 @@ window.addEventListener("load", () => {
     }
 
 
+
 /*  Funcion del BOTON AGREGAR personaje */
+ let btnAgregar = document.getElementById("agregar");
+
    const mostrarFila = () => {
-   
+  
     let newRow = document.createElement("tr");
     
-    let newCellNombre = document.createElement("td");
+     let newCellNombre = document.createElement("td");
     newCellNombre.classList.add("td-Elementos")
     newCellNombre.innerHTML = nombreModal.value;
 
@@ -116,7 +118,7 @@ window.addEventListener("load", () => {
 
     let newCellEdad = document.createElement("td");
     newCellEdad.classList.add("td-Elementos")
-    newCellEdad.innerHTML = Modal.value;
+    newCellEdad.innerHTML = edadModal.value;
 
     let newCellCaracteristica = document.createElement("td");
     newCellCaracteristica.classList.add("td-Elementos")
@@ -156,21 +158,20 @@ window.addEventListener("load", () => {
     barraSpinner.classList.remove("visible");
    };
   
-   /* Evento agregar personaje */
-  let btnAgregar = document.getElementById("agregar");
+  
   btnAgregar.addEventListener("click", agregarPersonaje);
 
  
-
+ 
 
 
 /* Funcion MODAL ELIMINAR PERSONAJE */                                     // falta a medias
 const btnEliminarModal = document.getElementById("btn-eliminar-modal");
-eliminarPersonaje = () => {
 
+eliminarPersonaje = () => {
 document.getElementById("tablaDinamica").deleteRow(-1);
 }
-/* evento eliminar */
+
 btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
 
@@ -182,31 +183,50 @@ const btnEditarModal = document.getElementById("btn-editar-modal");
 
 editarPersonaje = () => {
 
-  
-  
-
- 
 }
-/* evento editar */                                         
+                                       
 btnEditarModal.addEventListener("click" , editarPersonaje );
 
 
 
 
-/* Funcion mostrar filtro */                                            // a medias
+/* Funcion boton filtro */ 
+const btnFiltro = document.getElementById("checkbox-filtro")
 
-const mostrarFiltro = () => {
-   const buscadorFiltro = document.getElementById("buscador-filtro");
-   buscadorFiltro.classList.remove("hidden-filtro");
+const esconderDiv = () => {
+  let div = document.getElementById("inputTabla");
+  if(div.className === "visible"){
+    div.className = "hidden";
+
+} else {
+    div.className = "visible"; 
+   
 }
-const checkboxFiltro = document.getElementById("checkbox-filtro");
-checkboxFiltro.addEventListener("click" , mostrarFiltro);
+  
+}
+
+btnFiltro.addEventListener("click",esconderDiv)
 
 
-/* Buscar por filtrado */
 
-const btnFiltro = document.getElementById("btn-filtro");
 
+/* Filtrar Personajes */
+const busqueda = document.getElementById("inputTabla");
+const tabla = document.getElementById("tablaDinamica");
+
+const filtrarTabla = () => {
+  filtro = busqueda.value.toLowerCase();
+ 
+  for (  let i=0; row = tabla.rows[i++]; )
+  {
+    if ( row.innerHTML.toLowerCase().indexOf(filtro) !== -1 )
+      row.className = null;
+    else
+    row.className = "none";
+  }
+}
+
+  busqueda.addEventListener("keyup", filtrarTabla);
 
 
 

@@ -77,18 +77,8 @@ let dataParseada = JSON.parse(data);
 let clavesProducto = Object.keys(dataParseada.personajes[0]);
 
 
-/* Filtrar Personajes */
 
-let arrayPersonajes = clavesProducto.filter(function(persona)  {
-        return persona.caracteristica === "Guerrero Vikingo";
-   })
-      .map(function(persona){
-          return persona.caracteristica;
-      });
-          
-      
- 
-   console.log(arrayPersonajes)
+
 
 
  

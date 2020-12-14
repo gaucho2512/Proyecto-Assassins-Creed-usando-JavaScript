@@ -468,10 +468,6 @@ table {
    width: 200px;
  }
 
- .btn-filtro{
- margin-left: 225px;
-
- }
 
  .zona-boton{
 width: 100%;
@@ -481,7 +477,8 @@ height: 100px;
  .zona-buscar{
     width: 100%;
     height: 100px;
-    margin-top: 20px;
+    margin-top: 35px;
+  
     
  }
  .parrafo-filtro{
@@ -491,14 +488,6 @@ height: 100px;
      margin-left: 65px;
      
  }
-
- .hidden-filtro{
-     visibility: hidden;
- }
- .visible-filtro{
-     visibility: visible;
- }
-
 
 
 
@@ -526,6 +515,18 @@ height: 100px;
 .hidden{
 
     visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.none{
+   display: none;
+}
+
+.block{
+    display: block;
 }
 
 
