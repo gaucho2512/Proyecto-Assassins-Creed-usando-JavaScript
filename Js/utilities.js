@@ -104,7 +104,8 @@ window.addEventListener("DOMContentLoaded", () => {
 /*  Funcion del BOTON AGREGAR personaje */
  let btnAgregar = document.getElementById("agregar");
 
-   const mostrarFila = () => {
+
+    const mostrarFila = () => {
   
     let newRow = document.createElement("tr");
     
@@ -156,13 +157,66 @@ window.addEventListener("DOMContentLoaded", () => {
 
     barraSpinner = document.getElementById("boton-cargar")
     barraSpinner.classList.remove("visible");
-   };
+   }; 
   
   
-  btnAgregar.addEventListener("click", agregarPersonaje);
+    btnAgregar.addEventListener("click", agregarPersonaje);
 
+
+
+
+// funcion de agregar personaje con un FOR fallido.
+/* 
+ const mostrarFila = () => {
+  let newRow = document.createElement("tr");
+  newRow.classList.add("td-Elementos");
+
+
+for( i = 0 ; i < clavesProducto.length; i++) {
+
+
+let newCell = document.createElement("td");
+newCell.classList.add("td-Elementos");
+newCell.innerHTML = nombreModal.value;
+
+    newRow.appendChild(newCell);
+}
+
+let btnEditar = document.createElement("button");
+btnEditar.innerHTML = "Editar";
+btnEditar.setAttribute("id","boton-editar");
+btnEditar.setAttribute("data-target", "#modal-edit");
+btnEditar.setAttribute("data-toggle","modal")
+btnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm");
+
+ newRow.appendChild(btnEditar); 
  
+let btnEliminar = document.createElement("button");
+btnEliminar.innerHTML = "Eliminar";
+btnEliminar.setAttribute("id","boton-eliminar");
+btnEliminar.setAttribute("data-target", "#modal-elim");
+btnEliminar.setAttribute("data-toggle","modal")
+btnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm");
+
+newRow.appendChild(btnEliminar);  
+
+tablaDinamica.appendChild(newRow);
+
+
+barraSpinner = document.getElementById("boton-cargar")
+barraSpinner.classList.remove("visible");
  
+}
+  
+btnAgregar.addEventListener("click", agregarPersonaje);
+ 
+
+   */
+  
+ 
+
+
+
 
 
 /* Funcion MODAL ELIMINAR PERSONAJE */                                     // falta a medias
@@ -181,9 +235,24 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 /* Funcion MODAL EDITAR PERSONAJE */                                    // todavia falta
 const btnEditarModal = document.getElementById("btn-editar-modal");
 
-editarPersonaje = () => {
+const editarPersonaje = () => {
 
-}
+  tdId = document.getElementById("tdElId");
+
+  for(tdId in elemento) {
+ 
+   tdId.innerHTML = elemento[nombre]
+   tdId.innerHTML = editarOrigen.value
+   tdId.innerHTML = editarEdad.value;
+
+  }
+
+    
+  }
+
+ 
+
+
                                        
 btnEditarModal.addEventListener("click" , editarPersonaje );
 
@@ -200,9 +269,7 @@ const esconderDiv = () => {
 
 } else {
     div.className = "visible"; 
-   
 }
-  
 }
 
 btnFiltro.addEventListener("click",esconderDiv)
@@ -212,7 +279,8 @@ btnFiltro.addEventListener("click",esconderDiv)
 
 /* Filtrar Personajes */
 const busqueda = document.getElementById("inputTabla");
-const tabla = document.getElementById("tablaDinamica");
+const tabla = document.getElementById("tablaDinamica")
+
 
 const filtrarTabla = () => {
   filtro = busqueda.value.toLowerCase();
@@ -220,9 +288,10 @@ const filtrarTabla = () => {
   for (  let i=0; row = tabla.rows[i++]; )
   {
     if ( row.innerHTML.toLowerCase().indexOf(filtro) !== -1 )
-      row.className = null;
+      row.className = "visible";
     else
-    row.className = "none";
+        row.className = "none"
+
   }
 }
 
