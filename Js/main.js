@@ -4,7 +4,7 @@
 
 const tablaDinamica = document.getElementById("tablaDinamica");
 
-let data = ` {
+let datos = ` {
 
     "personajes" : [ 
      { 
@@ -20,49 +20,49 @@ let data = ` {
        
 },
 {
-        "Nombre": "Alfredo el Grande",
-        "Origen": "Winchester , Wessex",
-        " Edad" : "65" , 
-        "Caracteristica": "Rey de Wessex",
-        "Habilidad": "Cruz de Wincher"
+        "nombre": "Alfredo el Grande",
+        "origen": "Winchester , Wessex",
+        "edad" : "65" , 
+        "caracteristica": "Rey de Wessex",
+        "habilidad": "Cruz de Wincher"
         
         
 },
 {
-        "Nombre": "Eivor",
-        "Origen": "Noruega , Inglaterra",
-        " Edad" : "23" , 
-        "Caracteristica": "Guerrero Vikingo",
-        "Habilidad": "Sigilio del cuervo"
+        "nombre": "Eivor",
+        "origen": "Noruega , Inglaterra",
+        "edad" : "23" , 
+        "caracteristica": "Guerrero Vikingo",
+        "habilidad": "Sigilio del cuervo"
        
         
 },
 {
-        "Nombre": "Sigurd Styrbjornsson",
-        "Origen": "Noruega , Reino Unido",
-        " Edad" : "38" , 
-        "Caracteristica": "Guerrero Vikingo",
-        "Habilidad": "Death Knife"
+        "nombre": "Sigurd Styrbjornsson",
+        "origen": "Noruega , Reino Unido",
+        "edad" : "38" , 
+        "caracteristica": "Guerrero Vikingo",
+        "habilidad": "Death Knife"
       
        
 },
 
 {
-        "Nombre": "Osvaldo de Estanglia",
-        "Origen": "Estanglia , Inglaterra",
-        " Edad" : "39" , 
-        "Caracteristica": "Rey de Estanglia",
-        "Habilidad": "Tropa sajona"
+        "nombre": "Osvaldo de Estanglia",
+        "origen": "Estanglia , Inglaterra",
+        "edad" : "39" , 
+        "caracteristica": "Rey de Estanglia",
+        "habilidad": "Tropa sajona"
         
         
 },
 
 {
-        "Nombre": "Halfdan Ragnarsson",
-        "Origen": "Northumbria , Reino Unido",
-        " Edad" : "26" ,
-        "Caracteristica": "Guerrero Vikingo",
-        "Habilidad": "Espada sesgo"
+        "nombre": "Halfdan Ragnarsson",
+        "origen": "Northumbria , Reino Unido",
+        "edad" : "26" ,
+        "caracteristica": "Guerrero Vikingo",
+        "habilidad": "Espada sesgo"
      
         
 }
@@ -73,8 +73,8 @@ let data = ` {
 
 /* Parseo de formato JSON a Javascript  */
 
-let dataParseada = JSON.parse(data);
-let clavesProducto = Object.keys(dataParseada.personajes[0]);
+let datosParseados = JSON.parse(datos);
+let keyObjects = Object.keys(datosParseados.personajes[0]);
 
 
 

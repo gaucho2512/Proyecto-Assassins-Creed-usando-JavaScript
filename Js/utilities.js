@@ -1,47 +1,47 @@
 
 /* Proceso de la tabla dinamica ---- CREACION DEL THEAD */
-const HeaderTabla = (claves) => {
+const HeaderTabla = (keys) => {
 
-  let theadEl = document.createElement("thead");
-   theadEl.classList.add("td-Head");
-  let trEl = document.createElement("tr")
-  trEl.classList.add("td-Elementos");
+  let theadElemento = document.createElement("thead");
+   theadElemento.classList.add("td-Head");
+  let trElemento = document.createElement("tr")
+  trElemento.classList.add("td-Elementos");
       
 
-  for (let i = 0; i < claves.length; i++) {
-    let thEl = document.createElement("th");
-    thEl.classList.add("td-Head");
+  for (let i = 0; i < keys.length; i++) {
+    let thElemento = document.createElement("th");    
+    thElemento.classList.add("td-Head");
     
-    thEl.innerHTML = claves[i];
-    trEl.appendChild(thEl);
+    thElemento.innerHTML = keys[i];
+    trElemento.appendChild(thElemento);
  
   }
   
-  theadEl.appendChild(trEl);
+  theadElemento.appendChild(trElemento);
   
-  tablaDinamica.appendChild(theadEl);
+  tablaDinamica.appendChild(theadElemento);
 
  let thOpciones = document.createElement("th");
   thOpciones.innerHTML = "Opciones"
   thOpciones.classList.add("td-Head");
-   trEl.appendChild(thOpciones);  
+   trElemento.appendChild(thOpciones);  
 };
 
 
 /*  CREACION DE LAS FILAS */
-const createRows = (elemento) => {
-  let trEl = document.createElement("tr");
-  trEl.setAttribute("id" , "trRow");
-  trEl.classList.add("td-Elementos");
+const createRows = (e) => {
+  let trElemento = document.createElement("tr");
+  trElemento.setAttribute("id" , "trRow");
+  trElemento.classList.add("td-Elementos");
  
 
-  for (clave in elemento) {
-    let tdEl = document.createElement("td");
-    tdEl.setAttribute("id" , "tdElId")
-    tdEl.classList.add("td-Elementos");
-    tdEl.innerHTML = elemento[clave];
+  for (key in e) {
+    let tdElemento = document.createElement("td");
+    tdElemento.setAttribute("id" , "tdElId")
+    tdElemento.classList.add("td-Elementos");
+    tdElemento.innerHTML = e[key];
  
-    trEl.appendChild(tdEl);
+    trElemento.appendChild(tdElemento);
   }
  
 
@@ -54,7 +54,7 @@ const createRows = (elemento) => {
   btnEditar.setAttribute("data-toggle","modal")
   btnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm");
   
-   trEl.appendChild(btnEditar); 
+   trElemento.appendChild(btnEditar); 
    
   let btnEliminar = document.createElement("button");
   btnEliminar.innerHTML = "Eliminar";
@@ -63,29 +63,29 @@ const createRows = (elemento) => {
   btnEliminar.setAttribute("data-toggle","modal")
   btnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm");
   
-  trEl.appendChild(btnEliminar);  
+  trElemento.appendChild(btnEliminar);  
  
-  return trEl;
+  return trElemento;
 };
  
 
 /* CREACION DEL TBODY */
-const createBody = (elementos) => {
-  let tbodyEl = document.createElement("tbody");
-  tbodyEl.setAttribute("id" , "tbodyElId")
+const createBody = (el) => {
+  let tbodyElemento = document.createElement("tbody");
+  tbodyElemento.setAttribute("id" , "tbodyElId")
 
-  for (let i = 0; i < elementos.length; i++) {
-    tbodyEl.appendChild(createRows(elementos[i]));
+  for (let i = 0; i < el.length; i++) {
+    tbodyElemento.appendChild(createRows(el[i]));
   }
   
-  tablaDinamica.appendChild(tbodyEl);
+  tablaDinamica.appendChild(tbodyElemento);
 };
 
 
 /*  Evento de cargar pagina */
 window.addEventListener("DOMContentLoaded", () => {
-  HeaderTabla(clavesProducto);
-  createBody(dataParseada.personajes);
+  HeaderTabla(keyObjects);
+  createBody(datosParseados.personajes);
 });
 
 
@@ -100,8 +100,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-/*  Funcion del BOTON AGREGAR personaje */
+/*  Funcion del BOTON AGREGAR personaje  */   // version enroscada...
  let btnAgregar = document.getElementById("agregar");
 
 
@@ -135,8 +134,6 @@ window.addEventListener("DOMContentLoaded", () => {
     newCellBtnEditar.innerHTML = "Editar"
     newCellBtnEditar.setAttribute("data-target", "#modal-edit");
     newCellBtnEditar.setAttribute("data-toggle","modal")
-    
-
 
     let  newCellBtnEliminar = document.createElement("button")
     newCellBtnEliminar.setAttribute("id","boton-eliminar")
@@ -164,15 +161,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-// funcion de agregar personaje con un FOR fallido.
-/* 
+// funcion de agregar personaje con un FOR FALLIDO.
+ /* 
  const mostrarFila = () => {
   let newRow = document.createElement("tr");
   newRow.classList.add("td-Elementos");
 
 
-for( i = 0 ; i < clavesProducto.length; i++) {
+for( i = 0 ; i < keyObjects.length; i++) {
 
 
 let newCell = document.createElement("td");
@@ -210,16 +206,15 @@ barraSpinner.classList.remove("visible");
   
 btnAgregar.addEventListener("click", agregarPersonaje);
  
-
-   */
+ */
+   
   
  
 
 
 
 
-
-/* Funcion MODAL ELIMINAR PERSONAJE */                                     // falta a medias
+/* Funcion MODAL ELIMINAR PERSONAJE */                                    
 const btnEliminarModal = document.getElementById("btn-eliminar-modal");
 
 eliminarPersonaje = () => {
@@ -231,30 +226,37 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
 
 
+// spinner para la edicion
+const timerDeEdicion = () => {
+
+    const barraSpinner = document.getElementById("boton-cargar")
+     barraSpinner.classList.add("visible");
+    
+     setTimeout(editarPersonaje, 1500);   
+    
+     }
+
 
 /* Funcion MODAL EDITAR PERSONAJE */                                    // todavia falta
-const btnEditarModal = document.getElementById("btn-editar-modal");
+  const btnEditarModal = document.getElementById("btn-editar-modal");
 
-const editarPersonaje = () => {
+  const editarPersonaje = (elemento) => {
 
-  tdId = document.getElementById("tdElId");
-
-  for(tdId in elemento) {
- 
-   tdId.innerHTML = elemento[nombre]
-   tdId.innerHTML = editarOrigen.value
-   tdId.innerHTML = editarEdad.value;
-
-  }
+    for(let i = 0 ; i < elemento.rows ; i++) {   // a seguir aca
 
     
+
+   tdId = document.getElementById("tdElId");
+   tdId.innerHTML = "se edito";
   }
 
- 
 
-
-                                       
-btnEditarModal.addEventListener("click" , editarPersonaje );
+  const barraSpinner = document.getElementById("boton-cargar")
+  barraSpinner.classList.remove("visible");     
+  }
+  
+                    
+ btnEditarModal.addEventListener("click" , timerDeEdicion );
 
 
 
@@ -278,14 +280,14 @@ btnFiltro.addEventListener("click",esconderDiv)
 
 
 /* Filtrar Personajes */
-const busqueda = document.getElementById("inputTabla");
-const tabla = document.getElementById("tablaDinamica")
+const buscador = document.getElementById("inputTabla");
 
 
 const filtrarTabla = () => {
-  filtro = busqueda.value.toLowerCase();
- 
-  for (  let i=0; row = tabla.rows[i++]; )
+  filtro = buscador.value.toLowerCase();
+  const tBody = document.getElementById("tbodyElId")
+
+  for (  let i=0; row = tBody.rows[i++]; )
   {
     if ( row.innerHTML.toLowerCase().indexOf(filtro) !== -1 )
       row.className = "visible";
@@ -295,7 +297,7 @@ const filtrarTabla = () => {
   }
 }
 
-  busqueda.addEventListener("keyup", filtrarTabla);
+  buscador.addEventListener("keyup", filtrarTabla);
 
 
 
