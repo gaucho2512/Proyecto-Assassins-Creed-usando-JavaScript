@@ -38,7 +38,7 @@ const createRows = (e) => {
   for (key in e) {
     let tdElemento = document.createElement("td");
     tdElemento.setAttribute("id" , "tdElId")
-    tdElemento.classList.add("td-Elementos");
+    tdElemento.classList.add("td-Elementos", "td-value");
     tdElemento.innerHTML = e[key];
  
     trElemento.appendChild(tdElemento);
@@ -107,7 +107,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const mostrarFila = () => {
   
     let newRow = document.createElement("tr");
-    
+    newRow.classList.add("td-Row")
+
      let newCellNombre = document.createElement("td");
     newCellNombre.classList.add("td-Elementos")
     newCellNombre.innerHTML = nombreModal.value;
@@ -226,7 +227,7 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
 
 
-// spinner para la edicion
+ /* spinner para la edicion
 const timerDeEdicion = () => {
 
     const barraSpinner = document.getElementById("boton-cargar")
@@ -237,26 +238,35 @@ const timerDeEdicion = () => {
      }
 
 
+     const barraSpinner = document.getElementById("boton-cargar")
+     barraSpinner.classList.remove("visible");
+     
+     
+   */
+
+
 /* Funcion MODAL EDITAR PERSONAJE */                                    // todavia falta
-  const btnEditarModal = document.getElementById("btn-editar-modal");
+ 
+  const botonesEditar = document.getElementsByClassName("btn-edit");
 
-  const editarPersonaje = (elemento) => {
+    for(i=0; i<botonesEditar.length; i++) {
+    botonesEditar[i].addEventListener("click", () => {
 
-    for(let i = 0 ; i < elemento.rows ; i++) {   // a seguir aca
+     parrafo = document.createElement("p");
+     parrafo.innerHTML = "se creo el parrafo"
 
-    
-
-   tdId = document.getElementById("tdElId");
-   tdId.innerHTML = "se edito";
+     
+     
+    })
   }
 
 
-  const barraSpinner = document.getElementById("boton-cargar")
-  barraSpinner.classList.remove("visible");     
-  }
   
+  
+
+
                     
- btnEditarModal.addEventListener("click" , timerDeEdicion );
+ //btnEditarModal.addEventListener("click" , timerDeEdicion );
 
 
 
