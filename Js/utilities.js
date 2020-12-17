@@ -90,7 +90,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-  //  funcion del SPINNER...
+  //  funcion del SPINNER agregar...
   let agregarPersonaje = () => {
    const barraSpinner = document.getElementById("boton-cargar")
     barraSpinner.classList.add("visible");
@@ -213,9 +213,7 @@ btnAgregar.addEventListener("click", agregarPersonaje);
  
 
 
-
-
-/* Funcion MODAL ELIMINAR PERSONAJE */                                    
+/* Funcion MODAL ELIMINAR PERSONAJE */       // otra funcion que esta por la mitaD!! elimina de abajo para arriba o al revez!!!                              
 const btnEliminarModal = document.getElementById("btn-eliminar-modal");
 
 eliminarPersonaje = () => {
@@ -227,8 +225,8 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
 
 
- /* spinner para la edicion
-const timerDeEdicion = () => {
+  //spinner para la edicion
+  const timerDeEdicion = () => {
 
     const barraSpinner = document.getElementById("boton-cargar")
      barraSpinner.classList.add("visible");
@@ -237,41 +235,31 @@ const timerDeEdicion = () => {
     
      }
 
+  
 
-     const barraSpinner = document.getElementById("boton-cargar")
+   //Funcion MODAL EDITAR PERSONAJE      // intente de 100000000 de formas y no logre hacerlo andar!! quiero llorar!!!                               
+ 
+   const btnModal = document.getElementById("btn-editar-modal");
+   const editarPersonaje = () => {
+
+     alert("se edito... naaa mentira! no funciona");
+
+
+  const barraSpinner = document.getElementById("boton-cargar")
      barraSpinner.classList.remove("visible");
      
-     
-   */
+   }
 
+   
 
-/* Funcion MODAL EDITAR PERSONAJE */                                    // todavia falta
- 
-  const botonesEditar = document.getElementsByClassName("btn-edit");
-
-    for(i=0; i<botonesEditar.length; i++) {
-    botonesEditar[i].addEventListener("click", () => {
-
-     parrafo = document.createElement("p");
-     parrafo.innerHTML = "se creo el parrafo"
-
-     
-     
-    })
-  }
-
-
-  
-  
-
-
-                    
- //btnEditarModal.addEventListener("click" , timerDeEdicion );
+  btnModal.addEventListener("click" , timerDeEdicion );
 
 
 
 
-/* Funcion boton filtro */ 
+
+
+/* Funcion boton filtro */         
 const btnFiltro = document.getElementById("checkbox-filtro")
 
 const esconderDiv = () => {
@@ -289,11 +277,11 @@ btnFiltro.addEventListener("click",esconderDiv)
 
 
 
-/* Filtrar Personajes */
+/* Filtrar Personajes */          // esta funcion no es la correcta pero cumple con el requisito, en estos dias la voy a acomodar
 const buscador = document.getElementById("inputTabla");
 
 
-const filtrarTabla = () => {
+const filtrarTabla = () => {         
   filtro = buscador.value.toLowerCase();
   const tBody = document.getElementById("tbodyElId")
 
