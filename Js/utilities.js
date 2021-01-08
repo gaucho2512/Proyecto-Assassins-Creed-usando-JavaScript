@@ -49,11 +49,10 @@ const createRows = (e) => {
   // Creacion de los Botones editar y eliminar - con sus modales 
   let btnEditar = document.createElement("button");
   btnEditar.innerHTML = "Editar";
-  btnEditar.setAttribute("id","boton-editar");
+  btnEditar.setAttribute("class","boton-editar");
   btnEditar.setAttribute("data-target", "#modal-edit");
   btnEditar.setAttribute("data-toggle","modal")
   btnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm");
-  
    trElemento.appendChild(btnEditar); 
    
   let btnEliminar = document.createElement("button");
@@ -77,9 +76,35 @@ const createBody = (el) => {
   for (let i = 0; i < el.length; i++) {
     tbodyElemento.appendChild(createRows(el[i]));
   }
-  
   tablaDinamica.appendChild(tbodyElemento);
+  let btnsEdit = document.getElementsByClassName("boton-editar");
+  for (let index = 0; index < btnsEdit.length; index++) {
+    console.log( btnsEdit[index]);
+    btnsEdit[index].addEventListener('click', function(e) {
+      //console.log(e.target.parentElement);
+
+      let editarNombre = document.getElementById("editarNombre");
+      editarNombre.value = e.target.parentElement.childNodes[0].textContent;
+      
+      let editarOrigen = document.getElementById("editarOrigen");
+      editarOrigen.value = e.target.parentElement.childNodes[1].textContent;
+      
+      let editarEdad = document.getElementById("editarEdad");
+      editarEdad.value = e.target.parentElement.childNodes[2].textContent;
+      
+      let editarCaracteristica = document.getElementById("editarCaracteristica");
+      editarCaracteristica.value = e.target.parentElement.childNodes[3].textContent;
+      
+      let editarHabilidad = document.getElementById("editarHabilidad");
+      editarHabilidad.value = e.target.parentElement.childNodes[4].textContent;
+
+    });
+  }
 };
+
+
+
+
 
 
 /*  Evento de cargar pagina */
@@ -237,23 +262,37 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
   
 
-   //Funcion MODAL EDITAR PERSONAJE      // intente de 100000000 de formas y no logre hacerlo andar!! quiero llorar!!!                               
+   //Funcion MODAL EDITAR PERSONAJE                              
  
    const btnModal = document.getElementById("btn-editar-modal");
    const editarPersonaje = () => {
 
-     alert("se edito... naaa mentira! no funciona");
+    
+     let editarNombre = document.getElementById("editarNombre");
+      editarNombre.innerHTML = editarNombre.value;
+      
+     /*  let editarOrigen = document.getElementById("editarOrigen");
+      editarOrigen.value = e.target.parentElement.childNodes[1].textContent;
+      
+      let editarEdad = document.getElementById("editarEdad");
+      editarEdad.value = e.target.parentElement.childNodes[2].textContent;
+      
+      let editarCaracteristica = document.getElementById("editarCaracteristica");
+      editarCaracteristica.value = e.target.parentElement.childNodes[3].textContent;
+      
+      let editarHabilidad = document.getElementById("editarHabilidad");
+      editarHabilidad.value = e.target.parentElement.childNodes[4].textContent; */
 
 
-  const barraSpinner = document.getElementById("boton-cargar")
+
+  const barraSpinner = document.getElementById("boton-cargar") // borrado por el momento
      barraSpinner.classList.remove("visible");
      
    }
 
-   
 
   btnModal.addEventListener("click" , timerDeEdicion );
-
+ 
 
 
 
