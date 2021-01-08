@@ -77,6 +77,7 @@ const createBody = (el) => {
     tbodyElemento.appendChild(createRows(el[i]));
   }
   tablaDinamica.appendChild(tbodyElemento);
+
   let btnsEdit = document.getElementsByClassName("boton-editar");
   for (let index = 0; index < btnsEdit.length; index++) {
     console.log( btnsEdit[index]);
@@ -103,6 +104,7 @@ const createBody = (el) => {
 };
 
 
+//-----------------------------------//
 
 
 
@@ -125,7 +127,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
-/*  Funcion del BOTON AGREGAR personaje  */   // version enroscada...
+/*  Funcion del BOTON AGREGAR personaje  */  
  let btnAgregar = document.getElementById("agregar");
 
 
@@ -186,55 +188,9 @@ window.addEventListener("DOMContentLoaded", () => {
     btnAgregar.addEventListener("click", agregarPersonaje);
 
 
-
-// funcion de agregar personaje con un FOR FALLIDO.
- /* 
- const mostrarFila = () => {
-  let newRow = document.createElement("tr");
-  newRow.classList.add("td-Elementos");
+    //---------------------------------//
 
 
-for( i = 0 ; i < keyObjects.length; i++) {
-
-
-let newCell = document.createElement("td");
-newCell.classList.add("td-Elementos");
-newCell.innerHTML = nombreModal.value;
-
-    newRow.appendChild(newCell);
-}
-
-let btnEditar = document.createElement("button");
-btnEditar.innerHTML = "Editar";
-btnEditar.setAttribute("id","boton-editar");
-btnEditar.setAttribute("data-target", "#modal-edit");
-btnEditar.setAttribute("data-toggle","modal")
-btnEditar.classList.add("td-Elementos" , "btn-accion", "btn" , "btn-outline-primary", "btn-sm");
-
- newRow.appendChild(btnEditar); 
- 
-let btnEliminar = document.createElement("button");
-btnEliminar.innerHTML = "Eliminar";
-btnEliminar.setAttribute("id","boton-eliminar");
-btnEliminar.setAttribute("data-target", "#modal-elim");
-btnEliminar.setAttribute("data-toggle","modal")
-btnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm");
-
-newRow.appendChild(btnEliminar);  
-
-tablaDinamica.appendChild(newRow);
-
-
-barraSpinner = document.getElementById("boton-cargar")
-barraSpinner.classList.remove("visible");
- 
-}
-  
-btnAgregar.addEventListener("click", agregarPersonaje);
- 
- */
-   
-  
  
 
 
@@ -246,6 +202,10 @@ document.getElementById("tablaDinamica").deleteRow(-1);
 }
 
 btnEliminarModal.addEventListener("click" , eliminarPersonaje );
+
+
+
+// --------------------------------- //
 
 
 
@@ -267,25 +227,30 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
    const btnModal = document.getElementById("btn-editar-modal");
    const editarPersonaje = () => {
 
+
     
      let editarNombre = document.getElementById("editarNombre");
       editarNombre.innerHTML = editarNombre.value;
       
-     /*  let editarOrigen = document.getElementById("editarOrigen");
-      editarOrigen.value = e.target.parentElement.childNodes[1].textContent;
+      let editarOrigen = document.getElementById("editarOrigen");
+      editarOrigen.value = editarOrigen.value;
       
       let editarEdad = document.getElementById("editarEdad");
-      editarEdad.value = e.target.parentElement.childNodes[2].textContent;
+      editarEdad.value = editarEdad.value;
       
       let editarCaracteristica = document.getElementById("editarCaracteristica");
-      editarCaracteristica.value = e.target.parentElement.childNodes[3].textContent;
+      editarCaracteristica.value =  editarCaracteristica.value;
       
       let editarHabilidad = document.getElementById("editarHabilidad");
-      editarHabilidad.value = e.target.parentElement.childNodes[4].textContent; */
+      editarHabilidad.value = editarHabilidad.value;
 
 
 
-  const barraSpinner = document.getElementById("boton-cargar") // borrado por el momento
+      
+
+
+
+    const barraSpinner = document.getElementById("boton-cargar") 
      barraSpinner.classList.remove("visible");
      
    }
@@ -295,7 +260,7 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
  
 
 
-
+// ----------------------------//
 
 
 /* Funcion boton filtro */         
