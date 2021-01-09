@@ -32,7 +32,7 @@ const HeaderTabla = (keys) => {
 const createRows = (e) => {
   let trElemento = document.createElement("tr");
   trElemento.setAttribute("id" , "trRow");
-  trElemento.classList.add("td-Elementos");
+  trElemento.classList.add("td-Elementos", "tr-editar");
  
 
   for (key in e) {
@@ -78,9 +78,40 @@ const createBody = (el) => {
   }
   tablaDinamica.appendChild(tbodyElemento);
 
+
+  // FOR PARA BOTONES ELIMINAR ---
+  let btnsElim = document.getElementsByClassName("btn-eliminar");
+  for (let index = 0; index < btnsElim.length; index++) {
+  //  console.log( btnsElim[index]);
+    btnsElim[index].addEventListener('click', function(e) {
+      console.log(e.target.parentElement.childNodes);
+      
+    });
+  }
+
+ /* Funcion MODAL ELIMINAR PERSONAJE */       
+ const btnEliminarModal = document.getElementById("btn-eliminar-modal");
+
+eliminarPersonaje = (e) => {
+
+document.getElementById("tablaDinamica");
+//console.log( e.target.parentElement)
+
+}
+
+btnEliminarModal.addEventListener("click" , eliminarPersonaje );
+
+
+
+
+
+
+// --------------------------------- //
+
+  // FOR PARA BOTONES EDITAR ---
   let btnsEdit = document.getElementsByClassName("boton-editar");
   for (let index = 0; index < btnsEdit.length; index++) {
-    console.log( btnsEdit[index]);
+    //console.log( btnsEdit[index]);
     btnsEdit[index].addEventListener('click', function(e) {
       //console.log(e.target.parentElement);
 
@@ -104,10 +135,70 @@ const createBody = (el) => {
 };
 
 
+
+//------------------------//
+
+  //spinner para la edicion
+  const timerDeEdicion = () => {
+
+    const barraSpinner = document.getElementById("boton-cargar")
+     barraSpinner.classList.add("visible");
+    
+     setTimeout(editarPersonaje, 1500);   
+    
+     }
+
+  
+   //Funcion MODAL EDITAR PERSONAJE                              
+ 
+   const btnModal = document.getElementById("btn-editar-modal");
+
+   const editarPersonaje = () => {
+
+   
+    
+         
+     //let nombre = document.getElementById("editarNombre");
+    console.log(target.parentElement)// = editarNombre.value;
+      
+     // let origen = document.getElementById("editarOrigen");
+      origen.value = editarOrigen.value;
+      
+    //  let editarEdad = document.getElementById("editarEdad");
+      editarEdad.value = editarEdad.value;
+      
+     // let editarCaracteristica = document.getElementById("editarCaracteristica");
+      editarCaracteristica.value =  editarCaracteristica.value;
+      
+    //  let editarHabilidad = document.getElementById("editarHabilidad");
+      editarHabilidad.value = editarHabilidad.value;
+
+    
+
+
+  
+
+
+   
+
+
+      
+
+
+
+    const barraSpinner = document.getElementById("boton-cargar") 
+     barraSpinner.classList.remove("visible");
+     
+   }
+
+
+  btnModal.addEventListener("click" , timerDeEdicion );
+ 
+
+
+
+
 //-----------------------------------//
-
-
-
 
 /*  Evento de cargar pagina */
 window.addEventListener("DOMContentLoaded", () => {
@@ -188,80 +279,11 @@ window.addEventListener("DOMContentLoaded", () => {
     btnAgregar.addEventListener("click", agregarPersonaje);
 
 
-    //---------------------------------//
-
-
- 
-
-
-/* Funcion MODAL ELIMINAR PERSONAJE */       // otra funcion que esta por la mitaD!! elimina de abajo para arriba o al revez!!!                              
-const btnEliminarModal = document.getElementById("btn-eliminar-modal");
-
-eliminarPersonaje = () => {
-document.getElementById("tablaDinamica").deleteRow(-1);
-}
-
-btnEliminarModal.addEventListener("click" , eliminarPersonaje );
-
-
-
-// --------------------------------- //
 
 
 
 
-  //spinner para la edicion
-  const timerDeEdicion = () => {
-
-    const barraSpinner = document.getElementById("boton-cargar")
-     barraSpinner.classList.add("visible");
-    
-     setTimeout(editarPersonaje, 1500);   
-    
-     }
-
-  
-
-   //Funcion MODAL EDITAR PERSONAJE                              
- 
-   const btnModal = document.getElementById("btn-editar-modal");
-   const editarPersonaje = () => {
-
-
-    
-     let editarNombre = document.getElementById("editarNombre");
-      editarNombre.innerHTML = editarNombre.value;
-      
-      let editarOrigen = document.getElementById("editarOrigen");
-      editarOrigen.value = editarOrigen.value;
-      
-      let editarEdad = document.getElementById("editarEdad");
-      editarEdad.value = editarEdad.value;
-      
-      let editarCaracteristica = document.getElementById("editarCaracteristica");
-      editarCaracteristica.value =  editarCaracteristica.value;
-      
-      let editarHabilidad = document.getElementById("editarHabilidad");
-      editarHabilidad.value = editarHabilidad.value;
-
-
-
-      
-
-
-
-    const barraSpinner = document.getElementById("boton-cargar") 
-     barraSpinner.classList.remove("visible");
-     
-   }
-
-
-  btnModal.addEventListener("click" , timerDeEdicion );
- 
-
-
-// ----------------------------//
-
+ //---------------------------------//
 
 /* Funcion boton filtro */         
 const btnFiltro = document.getElementById("checkbox-filtro")
