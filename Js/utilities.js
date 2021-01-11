@@ -84,7 +84,8 @@ const createBody = (el) => {
   for (let index = 0; index < btnsElim.length; index++) {
   //  console.log( btnsElim[index]);
     btnsElim[index].addEventListener('click', function(e) {
-      console.log(e.target.parentElement.childNodes);
+     // console.log(e.target.parentElement);
+
       
     });
   }
@@ -94,8 +95,8 @@ const createBody = (el) => {
 
 eliminarPersonaje = (e) => {
 
-document.getElementById("tablaDinamica");
-//console.log( e.target.parentElement)
+   let deleteRow =  document.getElementById("trRow");
+   deleteRow.remove(e.target.parentElement)
 
 }
 
@@ -113,7 +114,7 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
   for (let index = 0; index < btnsEdit.length; index++) {
     //console.log( btnsEdit[index]);
     btnsEdit[index].addEventListener('click', function(e) {
-      //console.log(e.target.parentElement);
+      console.log(e.target.parentElement);
 
       let editarNombre = document.getElementById("editarNombre");
       editarNombre.value = e.target.parentElement.childNodes[0].textContent;
@@ -129,6 +130,9 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
       
       let editarHabilidad = document.getElementById("editarHabilidad");
       editarHabilidad.value = e.target.parentElement.childNodes[4].textContent;
+
+     // e.target.parentElement.childNodes[0].textContent = editarNombre.innerHTML = "hola"
+      //e.target.parentElement.childNodes[1].textContent = editarNombre.innerHTML = "asi anda"
 
     });
   }
@@ -152,38 +156,35 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
    //Funcion MODAL EDITAR PERSONAJE                              
  
    const btnModal = document.getElementById("btn-editar-modal");
+ 
 
    const editarPersonaje = () => {
 
-   
-    
          
-     //let nombre = document.getElementById("editarNombre");
-    console.log(target.parentElement)// = editarNombre.value;
-      
-     // let origen = document.getElementById("editarOrigen");
-      origen.value = editarOrigen.value;
-      
-    //  let editarEdad = document.getElementById("editarEdad");
-      editarEdad.value = editarEdad.value;
-      
-     // let editarCaracteristica = document.getElementById("editarCaracteristica");
-      editarCaracteristica.value =  editarCaracteristica.value;
-      
-    //  let editarHabilidad = document.getElementById("editarHabilidad");
-      editarHabilidad.value = editarHabilidad.value;
+      editarNombre = document.getElementById("editarNombre");
+      editarOrigen = document.getElementById("editarOrigen");
+      editarEdad = document.getElementById("editarEdad");
+      editarCaracteristica = document.getElementById("editarCaracteristica");
+      editarHabilidad = document.getElementById("editarHabilidad");
 
-    
+
+      editarNombre = editarNombre.value;
+      console.log(editarNombre);
+
+      editarOrigen = editarOrigen.value;
+      console.log(editarOrigen);
+
+      editarEdad = editarEdad.value;
+      console.log(editarEdad);
+
+      editarCaracteristica = editarCaracteristica.value;
+      console.log(editarCaracteristica);
+
+      editarHabilidad = editarHabilidad.value;
+      console.log(editarHabilidad);
 
 
   
-
-
-   
-
-
-      
-
 
 
     const barraSpinner = document.getElementById("boton-cargar") 
