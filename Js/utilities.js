@@ -37,7 +37,7 @@ const createRows = (e) => {
 
   for (key in e) {
     let tdElemento = document.createElement("td");
-    tdElemento.setAttribute("id" , "tdElId")
+    tdElemento.setAttribute("class" , "tdElId")
     tdElemento.classList.add("td-Elementos", "td-value");
     tdElemento.innerHTML = e[key];
  
@@ -67,6 +67,8 @@ const createRows = (e) => {
   return trElemento;
 };
  
+let rowIndex = null;
+let rowEliminar = null;
 
 /* CREACION DEL TBODY */
 const createBody = (el) => {
@@ -84,6 +86,9 @@ const createBody = (el) => {
   for (let index = 0; index < btnsElim.length; index++) {
   //  console.log( btnsElim[index]);
     btnsElim[index].addEventListener('click', function(e) {
+      rowEliminar = e.target.parentElement;
+      console.log(e.target.parentElement);
+     let nodos = e.target.parentElement.childNodes;
      // console.log(e.target.parentElement);
 
       
@@ -93,10 +98,14 @@ const createBody = (el) => {
  /* Funcion MODAL ELIMINAR PERSONAJE */       
  const btnEliminarModal = document.getElementById("btn-eliminar-modal");
 
-eliminarPersonaje = (e) => {
-
+eliminarPersonaje = () => {
+   let tBody = document.getElementById("tbodyElId");
    let deleteRow =  document.getElementById("trRow");
-   deleteRow.remove(e.target.parentElement)
+
+   console.log(rowEliminar);
+
+   rowEliminar.remove()
+ 
 
 }
 
@@ -110,12 +119,18 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 // --------------------------------- //
 
   // FOR PARA BOTONES EDITAR ---
+ 
   let btnsEdit = document.getElementsByClassName("boton-editar");
+
+
   for (let index = 0; index < btnsEdit.length; index++) {
     //console.log( btnsEdit[index]);
     btnsEdit[index].addEventListener('click', function(e) {
-      console.log(e.target.parentElement);
-
+      rowIndex = e.target.parentElement;
+      //console.log(e.target.parentElement);
+      
+      let nodos = e.target.parentElement.childNodes;
+     
       let editarNombre = document.getElementById("editarNombre");
       editarNombre.value = e.target.parentElement.childNodes[0].textContent;
       
@@ -130,12 +145,10 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
       
       let editarHabilidad = document.getElementById("editarHabilidad");
       editarHabilidad.value = e.target.parentElement.childNodes[4].textContent;
-
-     // e.target.parentElement.childNodes[0].textContent = editarNombre.innerHTML = "hola"
-      //e.target.parentElement.childNodes[1].textContent = editarNombre.innerHTML = "asi anda"
-
     });
   }
+  
+   
 };
 
 
@@ -148,7 +161,9 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
     const barraSpinner = document.getElementById("boton-cargar")
      barraSpinner.classList.add("visible");
     
-     setTimeout(editarPersonaje, 1500);   
+    setTimeout(function() {
+      editarPersonaje()
+    }, 1500);
     
      }
 
@@ -160,31 +175,24 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
 
    const editarPersonaje = () => {
 
-         
       editarNombre = document.getElementById("editarNombre");
-      editarOrigen = document.getElementById("editarOrigen");
+      tarOrigen = document.getElementById("editarOrigen");
       editarEdad = document.getElementById("editarEdad");
       editarCaracteristica = document.getElementById("editarCaracteristica");
       editarHabilidad = document.getElementById("editarHabilidad");
+    
+     
+    console.log(rowIndex.childNodes);
+      rowIndex.childNodes[0].innerHTML = editarNombre.value;
 
-
-      editarNombre = editarNombre.value;
-      console.log(editarNombre);
-
-      editarOrigen = editarOrigen.value;
-      console.log(editarOrigen);
-
-      editarEdad = editarEdad.value;
-      console.log(editarEdad);
-
-      editarCaracteristica = editarCaracteristica.value;
-      console.log(editarCaracteristica);
-
-      editarHabilidad = editarHabilidad.value;
-      console.log(editarHabilidad);
-
-
-  
+      rowIndex.childNodes[1].innerHTML = editarOrigen.value;
+   
+      rowIndex.childNodes[2].innerHTML = editarEdad.value;
+   
+      rowIndex.childNodes[3].innerHTML = editarCaracteristica.value;
+    
+      rowIndex.childNodes[4].innerHTML = editarHabilidad.value;
+     // console.log(editarHabilidad);
 
 
     const barraSpinner = document.getElementById("boton-cargar") 
@@ -193,7 +201,9 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
    }
 
 
-  btnModal.addEventListener("click" , timerDeEdicion );
+  btnModal.addEventListener("click" , function() {
+    timerDeEdicion();
+  } );
  
 
 
@@ -274,6 +284,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     barraSpinner = document.getElementById("boton-cargar")
     barraSpinner.classList.remove("visible");
+
    }; 
   
   
