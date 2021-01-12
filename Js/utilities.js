@@ -132,19 +132,19 @@ btnEliminarModal.addEventListener("click" , eliminarPersonaje );
       let nodos = e.target.parentElement.childNodes;
      
       let editarNombre = document.getElementById("editarNombre");
-      editarNombre.value = e.target.parentElement.childNodes[0].textContent;
+      editarNombre.value = nodos[0].textContent;
       
       let editarOrigen = document.getElementById("editarOrigen");
-      editarOrigen.value = e.target.parentElement.childNodes[1].textContent;
+      editarOrigen.value = nodos[1].textContent;
       
       let editarEdad = document.getElementById("editarEdad");
-      editarEdad.value = e.target.parentElement.childNodes[2].textContent;
+      editarEdad.value = nodos[2].textContent;
       
       let editarCaracteristica = document.getElementById("editarCaracteristica");
-      editarCaracteristica.value = e.target.parentElement.childNodes[3].textContent;
+      editarCaracteristica.value = nodos[3].textContent;
       
       let editarHabilidad = document.getElementById("editarHabilidad");
-      editarHabilidad.value = e.target.parentElement.childNodes[4].textContent;
+      editarHabilidad.value = nodos[4].textContent;
     });
   }
   
@@ -259,18 +259,24 @@ window.addEventListener("DOMContentLoaded", () => {
     newCellHabilidad.innerHTML = habilidadModal.value;
 
     let newCellBtnEditar = document.createElement("button")
-    newCellBtnEditar.setAttribute("id","boton-editar")
-    newCellBtnEditar.classList.add("td-Elementos" ,"btn-accion", "btn" , "btn-outline-primary", "btn-sm")
+    newCellBtnEditar.setAttribute("id","btn-editar")
+    newCellBtnEditar.classList.add("td-Elementos" ,"btn-accion", "btn" , "btn-outline-primary", "btn-sm", "btn-editar")
     newCellBtnEditar.innerHTML = "Editar"
     newCellBtnEditar.setAttribute("data-target", "#modal-edit");
     newCellBtnEditar.setAttribute("data-toggle","modal")
+    newCellBtnEditar.addEventListener("click", (e) => {
+      console.log(e.target.parentElement)
+    })
 
     let  newCellBtnEliminar = document.createElement("button")
-    newCellBtnEliminar.setAttribute("id","boton-eliminar")
+    newCellBtnEliminar.setAttribute("id","btn-eliminar")
     newCellBtnEliminar.classList.add("td-Elementos" , "btn-eliminar", "btn" , "btn-outline-danger", "btn-sm")
     newCellBtnEliminar.innerHTML = "Eliminar"
     newCellBtnEliminar.setAttribute("data-target", "#modal-elim");
     newCellBtnEliminar.setAttribute("data-toggle","modal")
+    newCellBtnEliminar.addEventListener("click", (e) => {
+      console.log(e.target.parentElement)
+    })
    
 
     tablaDinamica.appendChild(newRow)
