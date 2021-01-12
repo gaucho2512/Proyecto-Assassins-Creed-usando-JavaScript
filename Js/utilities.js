@@ -264,9 +264,40 @@ window.addEventListener("DOMContentLoaded", () => {
     newCellBtnEditar.innerHTML = "Editar"
     newCellBtnEditar.setAttribute("data-target", "#modal-edit");
     newCellBtnEditar.setAttribute("data-toggle","modal")
+
+    // aca le hice un evento al boto para que logre campar los datos de los imputs
     newCellBtnEditar.addEventListener("click", (e) => {
       console.log(e.target.parentElement)
+       rowIndex = e.target.parentElement;
+       nodos = e.target.parentElement.childNodes;
+       console.log(nodos)
+     
+      let editarNombre = document.getElementById("editarNombre");
+      editarNombre.value = nodos[0].textContent;
+      
+      
+      let editarOrigen = document.getElementById("editarOrigen");
+      editarOrigen.value = nodos[1].textContent;
+      
+      let editarEdad = document.getElementById("editarEdad");
+      editarEdad.value = nodos[2].textContent;
+      
+      let editarCaracteristica = document.getElementById("editarCaracteristica");
+      editarCaracteristica.value = nodos[3].textContent;
+      
+      let editarHabilidad = document.getElementById("editarHabilidad");
+      editarHabilidad.value = nodos[4].textContent;
     })
+
+    const btnModal = document.getElementById("btn-editar-modal");
+
+ // funcion para editar los imputs de los botones editar DE AGREGAR PERSONAJE
+    let editarPersonajeModal = () => {
+      editarPersonaje()
+    }
+    btnModal.addEventListener("click",editarPersonajeModal);
+
+
 
     let  newCellBtnEliminar = document.createElement("button")
     newCellBtnEliminar.setAttribute("id","btn-eliminar")
@@ -274,9 +305,19 @@ window.addEventListener("DOMContentLoaded", () => {
     newCellBtnEliminar.innerHTML = "Eliminar"
     newCellBtnEliminar.setAttribute("data-target", "#modal-elim");
     newCellBtnEliminar.setAttribute("data-toggle","modal")
+    // aca hice otro evento para poder eliminar el boton de AGREGAR
     newCellBtnEliminar.addEventListener("click", (e) => {
       console.log(e.target.parentElement)
+      rowIndex = e.target.parentElement;
+      nodos = e.target.parentElement.childNodes;
     })
+
+    const btnEliminarModal = document.getElementById("btn-eliminar-modal");
+
+     let eliminarPersonajeModal = () => {
+       rowIndex.remove()
+     }
+     btnEliminarModal.addEventListener("click",eliminarPersonajeModal);
    
 
     tablaDinamica.appendChild(newRow)
